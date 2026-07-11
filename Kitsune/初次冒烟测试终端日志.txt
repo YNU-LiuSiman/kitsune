@@ -1,0 +1,963 @@
+PowerShell 7.6.3
+Loading personal and system profiles took 3569ms.
+(base) PS D:\LCY\网安实训初级\Kitsune> git clone https://github.com/ymirsky/Kitsune-py.git
+Cloning into 'Kitsune-py'...
+remote: Enumerating objects: 82, done.
+remote: Counting objects: 100% (41/41), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 82 (delta 25), reused 19 (delta 19), pack-reused 41 (from 2)
+Receiving objects: 100% (82/82), 25.65 MiB | 4.23 MiB/s, done.
+Resolving deltas: 100% (40/40), done.
+(base) PS D:\LCY\网安实训初级\Kitsune> cd Kitsune-py
+(base) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> git checkout 7c8ea51
+Note: switching to '7c8ea51'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 7c8ea51 Merge pull request #36 from qingtian805/master
+(base) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> conda create -n kitsune python=3.10 -y
+3 channel Terms of Service accepted
+Channels:
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.3.2
+    latest version: 26.5.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: D:\Users\LSM\miniconda3\envs\kitsune
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    packaging-26.0             |  py310haa95532_0         166 KB
+    python-3.10.20             |       hb00fc5c_1        15.3 MB
+    setuptools-82.0.1          |  py310haa95532_0         1.2 MB
+    wheel-0.47.0               |  py310haa95532_0          81 KB
+    ------------------------------------------------------------
+                                           Total:        16.8 MB
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate kitsune
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> conda activate kitsune
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> git switch -c kitsune-reproduction
+Switched to a new branch 'kitsune-reproduction'
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> git status
+On branch kitsune-reproduction
+nothing to commit, working tree clean
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> git rev-parse --short HEAD
+7c8ea51
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python -V
+Python 3.10.20
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> where.exe python
+D:\Users\LSM\miniconda3\envs\kitsune\python.exe
+D:\Users\LSM\miniconda3\python.exe
+C:\Users\刘斯曼\AppData\Local\Microsoft\WindowsApps\python.exe
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python -m pip install --upgrade pip
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: pip in d:\users\lsm\miniconda3\envs\kitsune\lib\site-packages (26.1.2)
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python -m pip install numpy==1.23.5 scipy==1.10.1 scikit-learn==1.2.2 matplotlib==3.7.5 pandas==1.5.3 tqdm scapy cython
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting numpy==1.23.5
+  Downloading numpy-1.23.5-cp310-cp310-win_amd64.whl (14.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.6/14.6 MB 2.0 MB/s  0:00:08
+Collecting scipy==1.10.1
+  Downloading scipy-1.10.1-cp310-cp310-win_amd64.whl (42.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.5/42.5 MB 4.4 MB/s  0:00:09
+Collecting scikit-learn==1.2.2
+  Downloading scikit_learn-1.2.2-cp310-cp310-win_amd64.whl (8.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 4.3 MB/s  0:00:01
+Collecting matplotlib==3.7.5
+  Downloading matplotlib-3.7.5-cp310-cp310-win_amd64.whl (7.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.5/7.5 MB 4.8 MB/s  0:00:01
+Collecting pandas==1.5.3
+  Downloading pandas-1.5.3-cp310-cp310-win_amd64.whl (10.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 5.2 MB/s  0:00:01
+Collecting tqdm
+  Downloading tqdm-4.68.4-py3-none-any.whl (676 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 676.6/676.6 kB 3.3 MB/s  0:00:00
+Collecting scapy
+  Downloading scapy-2.7.0-py3-none-any.whl (2.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 4.3 MB/s  0:00:00
+Collecting cython
+  Downloading cython-3.2.8-cp310-cp310-win_amd64.whl (2.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 5.2 MB/s  0:00:00
+Collecting joblib>=1.1.1 (from scikit-learn==1.2.2)
+  Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.2.2)
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Collecting contourpy>=1.0.1 (from matplotlib==3.7.5)
+  Downloading contourpy-1.3.2-cp310-cp310-win_amd64.whl (221 kB)
+Collecting cycler>=0.10 (from matplotlib==3.7.5)
+  Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib==3.7.5)
+  Downloading fonttools-4.63.0-cp310-cp310-win_amd64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 3.3 MB/s  0:00:00
+Collecting kiwisolver>=1.0.1 (from matplotlib==3.7.5)
+  Downloading kiwisolver-1.5.0-cp310-cp310-win_amd64.whl (73 kB)
+Requirement already satisfied: packaging>=20.0 in d:\users\lsm\miniconda3\envs\kitsune\lib\site-packages (from matplotlib==3.7.5) (26.0)
+Collecting pillow>=6.2.0 (from matplotlib==3.7.5)
+  Downloading pillow-12.3.0-cp310-cp310-win_amd64.whl (7.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 4.2 MB/s  0:00:01
+Collecting pyparsing>=2.3.1 (from matplotlib==3.7.5)
+  Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Collecting python-dateutil>=2.7 (from matplotlib==3.7.5)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting pytz>=2020.1 (from pandas==1.5.3)
+  Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+Collecting colorama (from tqdm)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.7.5)
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: pytz, threadpoolctl, six, scapy, pyparsing, pillow, numpy, kiwisolver, joblib, fonttools, cython, cycler, colorama, tqdm, scipy, python-dateutil, contourpy, scikit-learn, pandas, matplotlib
+Successfully installed colorama-0.4.6 contourpy-1.3.2 cycler-0.12.1 cython-3.2.8 fonttools-4.63.0 joblib-1.5.3 kiwisolver-1.5.0 matplotlib-3.7.5 numpy-1.23.5 pandas-1.5.3 pillow-12.3.0 pyparsing-3.3.2 python-dateutil-2.9.0.post0 pytz-2026.2 scapy-2.7.0 scikit-learn-1.2.2 scipy-1.10.1 six-1.17.0 threadpoolctl-3.6.0 tqdm-4.68.4
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python -c "import numpy, scipy, sklearn, matplotlib, pandas, tqdm, scapy; print('环境检查通过'); print('numpy =', numpy.__version__); print('scipy =', scipy.__version__); print('sklearn =', sklearn.__version__)"
+环境检查通过
+numpy = 1.23.5
+scipy = 1.10.1
+sklearn = 1.2.2
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python -m pip freeze > requirements-reproduction.txt
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> Get-ChildItem
+
+    Directory: D:\LCY\网安实训初级\Kitsune\Kitsune-py
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           2026/7/11    21:44                KitNET
+-a---           2026/7/11    21:44          29287 AfterImage_extrapolate.pyx
+-a---           2026/7/11    21:44          16442 AfterImage.py
+-a---           2026/7/11    21:44           3019 example.py
+-a---           2026/7/11    21:44           8659 FeatureExtractor.py
+-a---           2026/7/11    21:44        4384530 Kitsune paper.pdf
+-a---           2026/7/11    21:44         248332 Kitsune_fig.png
+-a---           2026/7/11    21:44           1947 Kitsune.py
+-a---           2026/7/11    21:44           1092 LICENSE
+-a---           2026/7/11    21:44        7824919 mirai.zip
+-a---           2026/7/11    21:44           5951 netStat.py
+-a---           2026/7/11    21:44           6818 README.md
+-a---           2026/7/11    21:49            362 requirements-reproduction.txt
+-a---           2026/7/11    21:44            121 setup.py
+
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> New-Item -ItemType Directory -Force logs
+
+    Directory: D:\LCY\网安实训初级\Kitsune\Kitsune-py
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           2026/7/11    21:49                logs
+
+(kitsune) PS D:\LCY\网安实训初级\Kitsune\Kitsune-py> python example.py 2>&1 | Tee-Object -FilePath .\logs\official_example.log
+WARNING: No libpcap provider available ! pcap won't be used
+Importing Scapy Library
+Unzipping Sample Capture...
+tshark not found. Trying scapy...
+Reading PCAP file via Scapy...
+Loaded 764137 Packets.
+Feature-Mapper: train-mode, Anomaly-Detector: off-mode
+Running Kitsune:
+1000
+2000
+3000
+4000
+5000
+The Feature-Mapper found a mapping: 100 features to 16 autoencoders.
+Feature-Mapper: execute-mode, Anomaly-Detector: train-mode
+6000
+7000
+8000
+9000
+10000
+11000
+12000
+13000
+14000
+15000
+16000
+17000
+18000
+19000
+20000
+21000
+22000
+23000
+24000
+25000
+26000
+27000
+28000
+29000
+30000
+31000
+32000
+33000
+34000
+35000
+36000
+37000
+38000
+39000
+40000
+41000
+42000
+43000
+44000
+45000
+46000
+47000
+48000
+49000
+50000
+51000
+52000
+53000
+54000
+55000
+Feature-Mapper: execute-mode, Anomaly-Detector: execute-mode
+56000
+57000
+58000
+59000
+60000
+61000
+62000
+63000
+64000
+65000
+66000
+67000
+68000
+69000
+70000
+71000
+72000
+73000
+74000
+75000
+76000
+77000
+78000
+79000
+80000
+81000
+82000
+83000
+84000
+85000
+86000
+87000
+88000
+89000
+90000
+91000
+92000
+93000
+94000
+95000
+96000
+97000
+98000
+99000
+100000
+101000
+102000
+103000
+104000
+105000
+106000
+107000
+108000
+109000
+110000
+111000
+112000
+113000
+114000
+115000
+116000
+117000
+118000
+119000
+120000
+121000
+122000
+123000
+124000
+125000
+126000
+127000
+128000
+129000
+130000
+131000
+132000
+133000
+134000
+135000
+136000
+137000
+138000
+139000
+140000
+141000
+142000
+143000
+144000
+145000
+146000
+147000
+148000
+149000
+150000
+151000
+152000
+153000
+154000
+155000
+156000
+157000
+158000
+159000
+160000
+161000
+162000
+163000
+164000
+165000
+166000
+167000
+168000
+169000
+170000
+171000
+172000
+173000
+174000
+175000
+176000
+177000
+178000
+179000
+180000
+181000
+182000
+183000
+184000
+185000
+186000
+187000
+188000
+189000
+190000
+191000
+192000
+193000
+194000
+195000
+196000
+197000
+198000
+199000
+200000
+201000
+202000
+203000
+204000
+205000
+206000
+207000
+208000
+209000
+210000
+211000
+212000
+213000
+214000
+215000
+216000
+217000
+218000
+219000
+220000
+221000
+222000
+223000
+224000
+225000
+226000
+227000
+228000
+229000
+230000
+231000
+232000
+233000
+234000
+235000
+236000
+237000
+238000
+239000
+240000
+241000
+242000
+243000
+244000
+245000
+246000
+247000
+248000
+249000
+250000
+251000
+252000
+253000
+254000
+255000
+256000
+257000
+258000
+259000
+260000
+261000
+262000
+263000
+264000
+265000
+266000
+267000
+268000
+269000
+270000
+271000
+272000
+273000
+274000
+275000
+276000
+277000
+278000
+279000
+280000
+281000
+282000
+283000
+284000
+285000
+286000
+287000
+288000
+289000
+290000
+291000
+292000
+293000
+294000
+295000
+296000
+297000
+298000
+299000
+300000
+301000
+302000
+303000
+304000
+305000
+306000
+307000
+308000
+309000
+310000
+311000
+312000
+313000
+314000
+315000
+316000
+317000
+318000
+319000
+320000
+321000
+322000
+323000
+324000
+325000
+326000
+327000
+328000
+329000
+330000
+331000
+332000
+333000
+334000
+335000
+336000
+337000
+338000
+339000
+340000
+341000
+342000
+343000
+344000
+345000
+346000
+347000
+348000
+349000
+350000
+351000
+352000
+353000
+354000
+355000
+356000
+357000
+358000
+359000
+360000
+361000
+362000
+363000
+364000
+365000
+366000
+367000
+368000
+369000
+370000
+371000
+372000
+373000
+374000
+375000
+376000
+377000
+378000
+379000
+380000
+381000
+382000
+383000
+384000
+385000
+386000
+387000
+388000
+389000
+390000
+391000
+392000
+393000
+394000
+395000
+396000
+397000
+398000
+399000
+400000
+401000
+402000
+403000
+404000
+405000
+406000
+407000
+408000
+409000
+410000
+411000
+412000
+413000
+414000
+415000
+416000
+417000
+418000
+419000
+420000
+421000
+422000
+423000
+424000
+425000
+426000
+427000
+428000
+429000
+430000
+431000
+432000
+433000
+434000
+435000
+436000
+437000
+438000
+439000
+440000
+441000
+442000
+443000
+444000
+445000
+446000
+447000
+448000
+449000
+450000
+451000
+452000
+453000
+454000
+455000
+456000
+457000
+458000
+459000
+460000
+461000
+462000
+463000
+464000
+465000
+466000
+467000
+468000
+469000
+470000
+471000
+472000
+473000
+474000
+475000
+476000
+477000
+478000
+479000
+480000
+481000
+482000
+483000
+484000
+485000
+486000
+487000
+488000
+489000
+490000
+491000
+492000
+493000
+494000
+495000
+496000
+497000
+498000
+499000
+500000
+501000
+502000
+503000
+504000
+505000
+506000
+507000
+508000
+509000
+510000
+511000
+512000
+513000
+514000
+515000
+516000
+517000
+518000
+519000
+520000
+521000
+522000
+523000
+524000
+525000
+526000
+527000
+528000
+529000
+530000
+531000
+532000
+533000
+534000
+535000
+536000
+537000
+538000
+539000
+540000
+541000
+542000
+543000
+544000
+545000
+546000
+547000
+548000
+549000
+550000
+551000
+552000
+553000
+554000
+555000
+556000
+557000
+558000
+559000
+560000
+561000
+562000
+563000
+564000
+565000
+566000
+567000
+568000
+569000
+570000
+571000
+572000
+573000
+574000
+575000
+576000
+577000
+578000
+579000
+580000
+581000
+582000
+583000
+584000
+585000
+586000
+587000
+588000
+589000
+590000
+591000
+592000
+593000
+594000
+595000
+596000
+597000
+598000
+599000
+600000
+601000
+602000
+603000
+604000
+605000
+606000
+607000
+608000
+609000
+610000
+611000
+612000
+613000
+614000
+615000
+616000
+617000
+618000
+619000
+620000
+621000
+622000
+623000
+624000
+625000
+626000
+627000
+628000
+629000
+630000
+631000
+632000
+633000
+634000
+635000
+636000
+637000
+638000
+639000
+640000
+641000
+642000
+643000
+644000
+645000
+646000
+647000
+648000
+649000
+650000
+651000
+652000
+653000
+654000
+655000
+656000
+657000
+658000
+659000
+660000
+661000
+662000
+663000
+664000
+665000
+666000
+667000
+668000
+669000
+670000
+671000
+672000
+673000
+674000
+675000
+676000
+677000
+678000
+679000
+680000
+681000
+682000
+683000
+684000
+685000
+686000
+687000
+688000
+689000
+690000
+691000
+692000
+693000
+694000
+695000
+696000
+697000
+698000
+699000
+700000
+701000
+702000
+703000
+704000
+705000
+706000
+707000
+708000
+709000
+710000
+711000
+712000
+713000
+714000
+715000
+716000
+717000
+718000
+719000
+720000
+721000
+722000
+723000
+724000
+725000
+726000
+727000
+728000
+729000
+730000
+731000
+732000
+733000
+734000
+735000
+736000
+737000
+738000
+739000
+740000
+741000
+742000
+743000
+744000
+745000
+746000
+747000
+748000
+749000
+750000
+751000
+752000
+753000
+754000
+755000
+756000
+757000
+758000
+759000
+760000
+761000
+762000
+763000
+764000
+Complete. Time elapsed: 5206.60257267952
+Plotting results

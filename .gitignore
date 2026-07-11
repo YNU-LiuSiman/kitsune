@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE - VSCode user settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cython compiled modules
+*.so
+
+# Environment
+.env
+venv/
+.venv/
