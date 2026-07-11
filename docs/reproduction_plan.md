@@ -34,10 +34,12 @@ UCI features (<Attack>_dataset.csv.gz)
 **Objective:** Reproduce Kitsune detection across all 9 attack types using
 the UCI pre-extracted features.
 
-**Key challenge:** Current KitNET expects 100 features; UCI has 115. A
-pre-processing wrapper (scripts/) is required. Options:
-- Strip the 15 missing columns from UCI data (need to identify which)
-- Extend feature dimension to 115 (requires uncommenting Hstat or padding)
+**Key note:** UCI provides 115-dim features; the Python PCAP path
+produces 100-dim. KitNET's input dimension `n` is a **dynamic constructor
+parameter** (`KitNET(n, ...)`), so UCI 115-dim feeds directly to a
+KitNET(n=115) instance. No dimension conversion, padding, or stripping
+is needed. The 100-dim and 115-dim are two separate experiment tracks;
+they are not directly comparable at the feature level.
 
 **Input:** `data/kitsune/<attack>/` — downloaded UCI CSVs
 **Parameters:** TBD per attack during tuning
@@ -67,12 +69,15 @@ Each UCI CSV must be checked before processing:
 
 | Check | Action |
 |---|---|
-| Column count | Verify 115 feature cols (+ optional index + label). Log actual count. |
+| Check | Action |
+|---|---|---|
+| Feature file column count | Verify actual feature column count. Log actual count. May differ from 115; use actual count as KitNET n. |
 | Index column detection | Detect if col 0 is a row index (integer sequence); skip if present |
-| Label column | Last column should be binary label (0/1); verify and separate |
-| NaN/Inf | Scan for NaN or Inf; log count and positions |
-| Row count vs label count | Verify feature rows == label rows |
-| Training contamination | Verify no attack packets in FM grace period (possible with dense attacks) |
+| Label file | Read from separate label file (UCI distributes labels independently). Do **not** assume labels are in the feature file's last column. |
+| Label values | Verify binary 0/1 encoding. Report any other values. |
+| Row count: features vs labels | Verify feature row count == label row count |
+| NaN/Inf scan | Scan features for NaN or Inf; log count and positions |
+| Training contamination | Verify first 55001 samples contain zero attack labels |
 
 ### Directory Convention
 
@@ -88,27 +93,30 @@ A preprocessing script (created in Phase 01) will handle decompression,
 column validation, and standardized naming. The preprocessing pipeline
 must document the rename from official filenames to internal names.
 
-### Dataset Partitioning
+### Dataset Partitioning (Internal n_trained)
 
-- **FM grace:** First N packets (no attack contamination)
-- **AD grace:** Next M packets (no attack contamination)
-- **Execution:** Remaining packets (attack may appear)
+- **FM grace:** n_trained 0 — 5000 (inclusive, 5001 instances processed, clustering triggered at 5000)
+- **AD grace:** n_trained 5001 — 55000 (50000 instances of AD training)
+- **Execution:** n_trained ≥ 55001 (first execution instance = 55002nd 1-indexed sample)
 
-## Attack-Specific Considerations
+### Exploratory Run Parameters (All Attacks)
 
-| Attack | Expected Size | Grace Suitability | Notes |
-|---|---|---|---|
-| Mirai | ~100K packets | FM 5K probably safe | Official sample available |
-| SSDP Flood | TBD | May need shorter grace | High packet rate |
-| OS Scan | TBD | May need shorter grace | Low volume |
-| SSL Renegotiation | TBD | Standard grace likely OK | |
-| ARP MitM | TBD | Standard grace likely OK | |
-| SYN DoS | TBD | May need shorter grace | High packet rate |
-| Fuzzing | TBD | Standard grace likely OK | |
-| Active Wiretap | TBD | Standard grace likely OK | |
-| Video Injection | TBD | Standard grace likely OK | |
+All overnight exploratory runs use these unified parameters:
 
-Exact dataset sizes to be confirmed after download.
+| Parameter | Value |
+|---|---|
+| FMgrace | 5000 |
+| ADgrace | 50000 |
+| maxAE | 10 |
+| learning_rate | 0.1 |
+| hidden_ratio | 0.75 |
+
+These match `example.py` defaults. Parameter sensitivity analysis is deferred to a later phase.
+
+### Dataset Sizes
+
+Exact dataset sizes (row counts, file sizes) to be confirmed after download.
+No size estimates are made without evidence.
 
 ## Metrics
 

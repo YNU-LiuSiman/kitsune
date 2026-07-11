@@ -28,20 +28,25 @@
 
 ## KitNET Input Compatibility
 
-1. **Dimension mismatch:** UCI features = 115, Python KitNET expects 100. Options:
-   - Strip 15 UCI columns to match 100 (which 15?)
-   - Expand KitNET to accept 115 (modify source = forbidden currently)
-   - Add external wrapper that pads/selects dimensions
-   - Feasibility analysis needed.
-2. **Normalization compatibility:** dA.py does per-AE online 0-1 norm. UCI CSV may already be normalized or may need pre-normalization. Will the internal normalization handle CSV inputs correctly?
-3. **Feature ordering:** Is the UCI column order the same as the Python internal order? Need cross-reference between UCI documentation and `getNetStatHeaders` output.
+KitNET's input dimension `n` is a **dynamic constructor parameter**
+(`KitNET(n, ...)`). The 100-dim and 115-dim are two **separate experiment
+tracks**, not a compatibility issue:
+
+- **Track A (PCAP path):** KitNET(n=100) — matches Python AfterImage output
+- **Track B (UCI path):** KitNET(n=actual_feature_count) — matches UCI CSV column count
+
+No dimension conversion, padding, or stripping is required.
+
+1. **Normalization compatibility:** dA.py does per-AE online 0-1 norm. UCI CSV may already be normalized or may need pre-normalization. Will the internal normalization handle CSV inputs correctly?
+2. **Feature ordering:** Is the UCI column order the same as the Python internal order? Need cross-reference between UCI documentation and `getNetStatHeaders` output.
+3. **Label file format:** UCI distributes labels as separate files. Need to verify encoding (0/1 binary) and row-alignment with feature files.
 
 ## Paper Parameters
 
-1. **Grace periods for 9 attacks:** example.py uses FMgrace=5000, ADgrace=50000 for Mirai. Do other attacks need different grace periods? The paper mentions dataset-specific tuning for attack density.
-2. **maxAE parameter sensitivity:** Paper uses m=10. Is this optimal for all 9 attacks?
-3. **Threshold (phi):** The paper's log-normal threshold method (example.py:55-57) uses RMSEs from the first 100k instances. For other attacks with different dataset sizes, how should phi be determined?
-4. **EER calculation:** The paper reports EER, but the exact calculation method (threshold sweep? fixed FPR?) needs extraction from the paper.
+1. **Fixed grace periods:** Exploratory runs use FMgrace=5000, ADgrace=50000 across all 9 attacks (matching example.py). Grace period tuning (if needed) deferred until after baseline results are collected.
+2. **maxAE parameter sensitivity:** Paper uses m=10. Deferred to parameter sensitivity analysis phase.
+3. **Threshold (phi):** The paper's log-normal threshold method (example.py:55-57) uses RMSEs from the first execution samples. For UCI data where attack may start early, threshold determination method needs clarification from paper.
+4. **EER calculation:** The paper reports EER. Exact method (threshold sweep? fixed FPR?) needs extraction from paper.
 
 ## Log and Evidence
 

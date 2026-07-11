@@ -94,17 +94,19 @@ example.py
 
 ## 3. Grace Periods and Mode Switching
 
-| Phase | Instance Range | KitNET State | Process Behavior |
-|---|---|---|---|
-| FM grace | 0 — FMgrace-1 (0–4999) | FM training, AD off | train(): FM.update(x), at n==FMgrace → cluster → createAD |
-| AD grace | FMgrace — FMgrace+ADgrace-1 (5000–54999) | FM execute, AD training | train(): ensemble AEs train, output AE trains |
-| Execute | ≥ FMgrace+ADgrace (55000+) | FM execute, AD execute | execute(): ensemble → output AE → RMSE |
+| Phase | Internal n_trained | 1-indexed instance | KitNET State | Process Behavior |
+|---|---|---|---|---|
+| FM grace | 0 — 5000 (inclusive) | 1 — 5001 | FM training, AD off | train(): FM.update(x); at n_trained==FMgrace (5000) → cluster → createAD |
+| AD grace | 5001 — 55000 | 5002 — 55001 | FM execute, AD training | train(): ensemble AEs train, output AE trains |
+| Execute | ≥ 55001 | ≥ 55002 | FM execute, AD execute | execute(): ensemble → output AE → RMSE |
+
+Note: The FM grace processes 5001 instances (internal n_trained 0..5000). The 5001st instance (n_trained=5000) triggers feature-map clustering before the AD is created. AD grace then covers 50000 instances (n_trained 5001..55000).
 
 ## 4. RMSE Generation
 
 Each call to `proc_next_packet()` produces:
-- During FM+AD grace (0..54999): returns 0.0 (from process → train)
-- After grace (55000+): returns the RMSE from the output autoencoder
+- During FM+AD grace (n_trained 0..55000): returns 0.0 (from process → train)
+- After grace (n_trained ≥ 55001): returns the RMSE from the output autoencoder
 - RMSE at line 121 in dA.py: `numpy.sqrt(((x - z) ** 2).mean())`
 - No packets left: returns -1
 

@@ -30,10 +30,10 @@
 
 ## Open Issues
 
-1. **100-dim vs 115-dim discrepancy:** Python code outputs 100 features (Hstat commented out in `netStat.py:74-77`); paper defines 115. UCI dataset has 115. Direct input of UCI features into current KitNET is blocked by this mismatch.
+1. **100-dim vs 115-dim:** Two separate tracks. Python PCAP → AfterImage → KitNET(n=100). UCI CSV → KitNET(n=115). Not a compatibility issue; KitNET n is dynamic.
 2. **UCI dataset download:** URL, SHA-256, exact column layout TBD in audit phase.
-3. **Grace period tuning:** example.py parameters (FMgrace=5000, ADgrace=50000) are for Mirai; other attacks may need adjustment.
-4. **Threshold determination:** Log-normal cutoff method from example.py may not be universal.
+3. **Grace periods:** All exploratory runs use FMgrace=5000, ADgrace=50000 (unified). Parameter tuning deferred.
+4. **Threshold determination:** Log-normal cutoff method from example.py; applicability to UCI data needs verification.
 
 ## Blockers
 
