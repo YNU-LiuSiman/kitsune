@@ -54,6 +54,8 @@ data/
 
 ### Source
 
-- **Dataset homepage:** https://archive.ics.uci.edu/dataset/509/kitsune+network+attack+dataset
+- **Dataset homepage:** https://archive.ics.uci.edu/dataset/516/kitsune+network+attack+dataset
+
+> **Naming note:** Official UCI distribution uses `<Attack>_dataset.csv.gz` and `<Attack>_labels.csv.gz`. If the project renames these to `dataset.csv` / `labels.csv` internally, the preprocessing pipeline must document the rename explicitly.
 - **Download URL and SHA-256:** To be confirmed during repository audit phase.
   Do not guess. Record actual values after manual verification.

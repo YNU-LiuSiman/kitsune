@@ -179,7 +179,7 @@ via `git ls-files` + `Get-Item.Length`):
 | Action | When |
 |---|---|
 | `git rm --cached Kitsune/Kitsune-py/mirai.pcap` | Separate cleanup PR |
-| Add `mirari.pcap` pattern to `.gitignore` | Same cleanup PR |
+| Add `mirai.pcap` pattern to `.gitignore` | Same cleanup PR |
 | Move reports from `docs/` to `docx/` | Separate migration PR |
 | Migrate `docx/` files to Git LFS | Same migration PR (attribute already configured) |
 | `git lfs migrate` for historical LFS cleanup | Only if necessary; requires careful review |
