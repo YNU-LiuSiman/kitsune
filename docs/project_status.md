@@ -9,7 +9,7 @@
 | Current branch | `phase/00-repository-audit` |
 | Last PR | #1 merged (repository storage policy) |
 | Last review | PR #1 approved and merged |
-| Last updated | 2026-07-11 |
+| Last updated | 2026-07-12 |
 
 ## Completed
 
@@ -17,6 +17,12 @@
 - [x] Dataset directory structure (`data/`, `logs/`, `results/`)
 - [x] Legacy report moved to `docs/`
 - [x] Nested git repository removed from `Kitsune/Kitsune-py/`
+- [x] Phase 00 audit documents (repository_audit, reproduction_plan, open_questions, project_status)
+- [x] PR #3 created (phase/00-repository-audit, awaiting review)
+- [x] Overnight experiment script (scripts/run_experiment.py)
+- [x] Mirai PCAP baseline full run: 764,137 packets, 709,136 execution rows, ~590 pkts/sec
+- [x] Confirmed 100-dim output: "100 features to 16 autoencoders"
+- [x] PR #4 created (exp/overnight-20260712)
 
 ## Locked Decisions
 
@@ -38,7 +44,8 @@
 ## Blockers
 
 - UCI dataset must be downloaded and verified before Track B can begin.
-- 100/115-dim resolution is required before UCI features can flow into KitNET.
+- 100/115-dim: not a blocker for UCI (KitNET n is dynamic), but affects comparability.
+- Mirai PCAP baseline confirmed; UCI data still missing.
 
 ## Next Phase
 
