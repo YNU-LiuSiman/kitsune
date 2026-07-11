@@ -1,4 +1,6 @@
-# Python
+# ============================================================
+# Python cache and build outputs
+# ============================================================
 __pycache__/
 *.py[cod]
 *.pyo
@@ -8,17 +10,137 @@ dist/
 build/
 *.egg
 
-# IDE - VSCode user settings
-.vscode/
-
-# OS files
-.DS_Store
-Thumbs.db
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
 
 # Cython compiled modules
 *.so
+*.dll
+*.dylib
 
-# Environment
+# ============================================================
+# Python and Conda environments
+# ============================================================
 .env
+.env.*
+!.env.example
+
 venv/
 .venv/
+env/
+ENV/
+conda-meta/
+
+# ============================================================
+# IDE and operating-system files
+# ============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Secrets and local-only configuration
+# ============================================================
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.token
+
+configs/local*.json
+configs/local*.yaml
+configs/local*.yml
+configs/secrets*.json
+configs/secrets*.yaml
+configs/secrets*.yml
+
+# ============================================================
+# Raw datasets and downloaded archives
+# ============================================================
+data/*
+!data/README.md
+!data/.gitkeep
+
+datasets/
+downloads/
+raw_data/
+
+*.pcap
+*.pcapng
+*.cap
+
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# ============================================================
+# Runtime logs
+# Only sanitized logs may be committed
+# ============================================================
+/logs/raw/
+/logs/*.log
+/logs/*.tmp
+/logs/*.txt
+/logs/*.json
+/logs/*.csv
+!/logs/README.md
+!/logs/.gitkeep
+!/logs/sanitized/
+!/logs/sanitized/**
+
+# Raw or private logs inside result directories
+results/**/logs/raw/
+results/**/logs/private/
+
+# ============================================================
+# Temporary and incomplete experiment outputs
+# ============================================================
+*.tmp
+*.temp
+*.partial
+*.lock
+
+tmp/
+temp/
+cache/
+
+results/**/tmp/
+results/**/temp/
+results/**/cache/
+results/**/.partial/
+results/**/*.tmp
+results/**/*.partial
+
+# ============================================================
+# Local experiment state
+# ============================================================
+runs/local/
+checkpoints/local/
+wandb/
+mlruns/
+
+# ============================================================
+# Extracted or reproducible intermediate assets
+# ============================================================
+extracted/
+extracted_images/
+pdf_images/
+scratch/
+
+# ============================================================
+# Keep formal documents and reproducibility records
+# ============================================================
+!docs/
+!docs/**
+!docx/
+!docx/**
