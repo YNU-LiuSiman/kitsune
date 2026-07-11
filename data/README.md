@@ -1,44 +1,59 @@
 # Data Directory
 
-This directory stores raw datasets used for experiments.
+This directory stores raw datasets used for Kitsune reproduction experiments.
 
 **Policy:** Raw datasets are not committed to Git. They must be downloaded
 separately using the instructions below.
 
-## Datasets Used
+## Dataset: UCI Kitsune Network Attack Dataset
 
-### UCI BotIoT (UNSW)
+This project reproduces the Kitsune (2018) network intrusion detection
+framework using the UCI Kitsune Network Attack Dataset, which covers
+nine types of network attacks:
 
-- **Source:** https://www.unsw.adfa.edu.au/unsw-canberra-cyber/cybersecurity/ADFA-NB15-Datasets/bot_iot.php
-- **Files required:** `UNSW_2018_IoT_Botnet_Full5percent.csv` (or similar)
-- **Place under:** `data/botiot/`
-- **Expected SHA-256:** (to be recorded after download)
+| # | Attack Type | Description |
+|---|---|---|
+| 1 | Mirai | Mirai botnet malware infection |
+| 2 | SSDP Flood | SSDP amplification DDoS attack |
+| 3 | OS Scan | Operating system fingerprinting scan |
+| 4 | SSL Renegotiation | SSL renegotiation DoS attack |
+| 5 | ARP MitM | ARP man-in-the-middle attack |
+| 6 | SYN DoS | SYN flood denial-of-service attack |
+| 7 | Fuzzing | Protocol fuzzing attack |
+| 8 | Active Wiretap | Active network wiretapping attack |
+| 9 | Video Injection | Malicious video stream injection |
 
-### CIC-IDS-2017
+### Data Format
 
-- **Source:** https://www.unb.ca/cic/datasets/ids-2017.html
-- **Files required:** PCAPs and CSV label files
-- **Place under:** `data/cic-ids-2017/`
-- **Expected SHA-256:** (to be recorded after download)
+Each attack experiment expects:
+- **Feature file:** `dataset.csv` (or compressed variant) — extracted
+  packet-level features
+- **Label file:** `labels.csv` (or compressed variant) — ground-truth
+  labels for each record
+- **Optional:** Raw PCAP captures of the attack traffic
 
-## Download Instructions
-
-```powershell
-# Example: download BotIoT dataset
-# (URL to be updated with actual download link)
-# Invoke-WebRequest -Uri <URL> -OutFile data/botiot/raw.csv
-```
-
-## Directory Layout After Download
+### Expected Directory Layout
 
 ```
 data/
 ├── README.md
 ├── .gitkeep
-├── botiot/
-│   └── UNSW_2018_IoT_Botnet_Full5percent.csv
-└── cic-ids-2017/
-    ├── Monday.pcap
-    ├── Tuesday.pcap
-    └── ...
+└── kitsune/
+    ├── mirai/
+    │   ├── dataset.csv
+    │   └── labels.csv
+    ├── ssdp_flood/
+    ├── os_scan/
+    ├── ssl_renegotiation/
+    ├── arp_mitm/
+    ├── syn_dos/
+    ├── fuzzing/
+    ├── active_wiretap/
+    └── video_injection/
 ```
+
+### Source
+
+- **Dataset homepage:** https://archive.ics.uci.edu/dataset/509/kitsune+network+attack+dataset
+- **Download URL and SHA-256:** To be confirmed during repository audit phase.
+  Do not guess. Record actual values after manual verification.

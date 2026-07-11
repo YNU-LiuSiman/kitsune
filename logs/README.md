@@ -4,15 +4,33 @@ This directory stores experiment execution logs.
 
 **Policy:**
 - `logs/sanitized/` — Redacted logs suitable for Git (regular Git, committed)
-- `logs/raw/` — Unprocessed logs with potential PII (ignored via .gitignore)
+- `logs/raw/` — Unprocessed logs with potential PII (ignored via `.gitignore`)
 - Root of `logs/` — Not committed directly (only README.md and .gitkeep)
 
-## Log Sanitization
+## Log Sanitization Rules
 
-Before committing logs, ensure:
+### Must Redact (Remove or Mask)
 
-- [ ] Replace absolute paths with `<REPO_ROOT>` or `<USER_HOME>`
-- [ ] Remove or mask user names
-- [ ] Remove or mask IP addresses and host names
-- [ ] Remove API keys, tokens, and passwords
-- [ ] Preserve all experiment-relevant output intact
+- [ ] Local user names and account names
+- [ ] Absolute local file system paths (replace with `<REPO_ROOT>`)
+- [ ] Host names of local machines
+- [ ] Account credentials, API tokens, keys, and passwords
+- [ ] Personal information unrelated to the experiment
+- [ ] Unnecessary real private network addresses
+
+### Must Preserve (Keep Unchanged)
+
+- [ ] Packet sequence numbers and ordering
+- [ ] Attack start positions and timestamps
+- [ ] Experiment start and end times
+- [ ] Elapsed durations and performance metrics
+- [ ] Public dataset IP addresses and network fields where relevant
+- [ ] Model phase transition information (training, detection, inference)
+- [ ] All experiment parameters required for reproducibility
+- [ ] Public dataset identifiers and metadata
+
+### Network Address Sanitization
+
+If private network identifiers must be masked, use stable consistent
+mappings (e.g., `<HOST_A>`, `<HOST_B>`) throughout the same log file
+to preserve relational integrity.

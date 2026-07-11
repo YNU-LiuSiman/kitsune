@@ -7,7 +7,7 @@ The following file types are committed directly via normal Git:
 | Directory / Pattern | Contents |
 |---|---|
 | `docs/` | Markdown audit reports, protocols, design documents, and storage policy |
-| `docx/` | Course report Word documents, exported PDFs, formal figures, and deliverables |
+| `docx/` | (Target) Course report Word documents, exported PDFs, formal figures, and deliverables |
 | `scripts/` | Experiment scripts and analysis programs |
 | `configs/` | Non-sensitive experiment configurations |
 | `tests/` | Test code |
@@ -22,14 +22,19 @@ The following file types are committed directly via normal Git:
 
 ## 2. Files Managed by Git LFS
 
-Large binary artifacts that must be preserved are tracked via Git LFS:
+Large binary artifacts that must be preserved are tracked via Git LFS.
+Note: Adding LFS attributes to `.gitattributes` does **not** automatically
+migrate existing Git objects. Historical files remain in regular Git until
+explicitly migrated with `git lfs migrate` (requires separate PR and review).
 
 | Pattern | Rationale |
 |---|---|
-| `docx/**/*.docx` | Course report Word source files (may contain embedded figures) |
-| `docx/**/*.pdf` | Exported PDF reports with formal typesetting |
+| `docs/**/*.docx` | Current report location — formal Word deliverables |
+| `docs/**/*.pdf` | Current report location — exported PDF reports |
+| `docx/**/*.docx` | Target report location — formal Word deliverables |
+| `docx/**/*.pdf` | Target report location — exported PDF reports |
 | `results/**/raw/**` | Large raw experiment outputs (e.g., per-packet RMSE CSVs) |
-| `results/**/*.csv.gz` | Compressed large CSV results (e.g., 100K+ row metrics) |
+| `results/**/*.csv.gz` | Compressed large CSV results |
 | `results/**/*.parquet` | Columnar storage for large tabular results |
 | `results/**/*.npy` | NumPy array dumps from experiment runs |
 | `results/**/*.npz` | Compressed NumPy archive outputs |
@@ -42,9 +47,9 @@ The following must never enter the Git repository:
 
 | Category | Examples | Reason |
 |---|---|---|
-| UCI raw datasets | `data/` contents (excluding README) | Reproducible via download; too large for Git |
-| Packet captures | `*.pcap`, `*.pcapng`, `*.cap` | Large binary files; can be regenerated or re-downloaded |
-| Downloaded archives | `*.zip`, `*.7z`, `*.rar`, `*.tar.gz` | Third-party artifacts; not original work |
+| Raw datasets | `data/` contents (excluding README) | Reproducible via download; too large for Git |
+| Packet captures | `*.pcap`, `*.pcapng`, `*.cap` | Large binary files; can be re-acquired from public sources or restored from retained official samples |
+| Downloaded archives (non-essential) | `*.7z`, `*.rar`, `*.tar.gz` | Third-party artifacts; not original work |
 | Conda / Python environments | `venv/`, `.venv/`, `env/`, `conda-meta/` | Platform-specific; reproducible via `requirements*.txt` |
 | Python cache | `__pycache__/`, `*.pyc` | Automatically generated; worthless in version control |
 | IDE configuration | `.vscode/`, `.idea/` | User-specific; not part of the project |
@@ -57,14 +62,30 @@ The following must never enter the Git repository:
 
 ## 4. `docs/` vs `docx/`
 
-| Directory | Format | Purpose |
-|---|---|---|
-| `docs/` | Markdown (`.md`) | Machine-readable; diff-friendly; audit trail, protocols, plans, policy |
-| `docx/` | Word (`.docx` / `.pdf`) | Human-readable; course deliverables; formal reports; embedded figures |
+| Directory | Format | Purpose | Status |
+|---|---|---|---|
+| `docs/` | Markdown (`.md`) + legacy `.docx`/`.pdf` | Machine-readable audit trail, protocols, plans, policy | Current layout |
+| `docx/` | Word (`.docx` / `.pdf`) | (Target) Course deliverables; formal reports; embedded figures | Target layout |
 
-**Rule:** Edit workflow documentation in `docs/`. Place final deliverables in `docx/`.
+**Current layout:** Formal reports (`Kitsune复现报告最终版.docx`, `Kitsune复现报告最终版.pdf`)
+reside in `docs/`. This is a **legacy layout**.
 
-## 5. Recommended `results/` Structure
+**Target layout:** Formal reports should eventually move to `docx/`. Migration
+will be performed in a **separate PR** — this PR does not move any files.
+
+**Rule for new work:** Edit workflow documentation in `docs/`. Place final
+deliverables in `docx/`.
+
+## 5. Dataset
+
+This project reproduces the **Kitsune Network Attack Dataset** (UCI),
+covering nine attack types: Mirai, SSDP Flood, OS Scan, SSL Renegotiation,
+ARP MitM, SYN DoS, Fuzzing, Active Wiretap, and Video Injection.
+
+See `data/README.md` for dataset source, expected layout, and download
+instructions.
+
+## 6. Recommended `results/` Structure
 
 ```
 results/
@@ -82,70 +103,90 @@ results/
 
 Only `raw/` (for large results) uses Git LFS. All other files use regular Git.
 
-## 6. Raw Logs vs Sanitized Logs
+## 7. Raw Logs vs Sanitized Logs
 
 | Type | Content | Storage |
 |---|---|---|
-| **Raw logs** | Full stdout/stderr; may contain absolute local paths, user names, IPs, timestamps | Ignored by `.gitignore` |
-| **Sanitized logs** | Redacted versions: paths replaced with relative, user names removed, timestamps normalized | Committed via regular Git |
+| **Raw logs** | Full stdout/stderr; may contain absolute local paths, user names, host names, tokens | Ignored by `.gitignore` |
+| **Sanitized logs** | Redacted versions with PII removed; experiment-relevant data preserved intact | Committed via regular Git |
 
-**Sanitization rules:**
-- Replace `C:\Users\username` with `<USER_HOME>`
-- Replace `D:\path\to\project` with `<REPO_ROOT>`
-- Remove or mask IP addresses and host names
-- Remove API keys and tokens
-- Keep experiment-relevant output intact
+### Must Redact (Remove or Mask)
 
-## 7. Dataset Management
+- Local user names and account names
+- Absolute local file system paths (replace with `<REPO_ROOT>`)
+- Host names of local machines
+- Account credentials, API tokens, keys, and passwords
+- Personal information unrelated to the experiment
+- Unnecessary real private network addresses
 
-Raw datasets (UCI BotIoT, CIC-IDS, etc.) are **not** committed.
+### Must Preserve (Keep Unchanged)
+
+- Packet sequence numbers and ordering
+- Attack start positions and timestamps
+- Experiment start and end times
+- Elapsed durations and performance metrics
+- Public dataset IP addresses and network fields where relevant
+- Model phase transition information (training, detection, etc.)
+- All experiment parameters required for reproducibility
+- Public dataset identifiers and metadata
+
+### Network Address Sanitization
+
+If private network identifiers must be masked, use stable consistent
+mappings (e.g., `<HOST_A>`, `<HOST_B>`) throughout the same log file to
+preserve relational integrity.
+
+## 8. Dataset Management
+
+Raw datasets (UCI Kitsune Network Attack Dataset) are **not** committed.
 
 Each dataset is documented in `data/README.md` with:
 - Dataset name and version
-- Original download URL
+- Original download URL (to be confirmed during audit phase)
 - Expected directory layout under `data/`
 - Required file names
-- SHA-256 checksums for integrity verification
+- SHA-256 checksums for integrity verification (to be recorded after manual verification)
 
-Users reproduce experiments by running `data/README.md` download instructions.
+Users reproduce experiments by following `data/README.md` download and
+setup instructions.
 
-## 8. Why Conda Environments and Raw Data Are Excluded
+## 9. Why Conda Environments and Raw Data Are Excluded
 
-| Asset | Size (typical) | Reason for Exclusion |
-|---|---|---|
-| Conda environment | 1–5 GB | Platform-specific; reproducible via `requirements*.txt` |
-| UCI BotIoT dataset | 50–100 GB | Publicly downloadable; too large for any Git repository |
-| PCAP files | 50 MB–10 GB | Third-party captures; referenced by URL |
-| Python cache | 10–100 MB | Automatically regenerated; no scientific value |
-| IDE metadata | 1–10 MB | Editor-specific; irrelevant to reproducibility |
+| Asset | Reason for Exclusion |
+|---|---|
+| Conda environment | Platform-specific; reproducible via `requirements*.txt` |
+| UCI Kitsune dataset | Publicly downloadable; exact sizes to be confirmed during audit |
+| PCAP files (third-party) | Can be re-acquired from public sources or restored from retained official compressed samples |
+| Python cache | Automatically regenerated; no scientific value |
+| IDE metadata | Editor-specific; irrelevant to reproducibility |
 
-## 9. Currently Tracked Large Files
+## 10. Currently Tracked Large Files (Actual Sizes)
 
-The following large files are already tracked in Git history:
+The following large files are already tracked in Git history (sizes verified
+via `git ls-files` + `Get-Item.Length`):
 
-| File | Size | Type |
-|---|---|---|
-| `Kitsune/Kitsune-py/mirai.pcap` | ~60 MB | Binary packet capture (third-party) |
-| `Kitsune/Kitsune-py/mirai.zip` | ~400 KB | Compressed archive (third-party) |
-| `Kitsune/Kitsune-py/Kitsune paper.pdf` | ~3 MB | Published paper (third-party, already in original repo) |
-| `docs/Kitsune复现报告最终版.docx` | varies | Course report (own work, formal deliverable) |
-| `docs/Kitsune复现报告最终版.pdf` | varies | Exported report (own work, formal deliverable) |
+| File | Bytes | Readable Size | Type | Recommendation |
+|---|---|---|---|---|
+| `Kitsune/Kitsune-py/mirai.pcap` | 62,859,800 | 59.95 MB | Binary packet capture (third-party) | Future PR: `git rm --cached` and ignore; it is a derived file from `mirai.zip` |
+| `Kitsune/Kitsune-py/mirai.zip` | 7,824,919 | 7.46 MB | Compressed archive (third-party) | Keep temporarily — official offline sample needed for smoke tests |
+| `Kitsune/Kitsune-py/Kitsune paper.pdf` | 4,384,530 | 4.18 MB | Published paper (third-party) | Keep in regular Git — small, and serves as reproduction reference |
+| `Kitsune/Kitsune-py/Kitsune_fig.png` | 248,332 | 242.51 KB | Figure from original repo | Keep — small, part of original distribution |
+| `docs/Kitsune复现报告最终版.docx` | 816,877 | 797.73 KB | Formal report (own work) | Keep; future PR: move to `docx/` and manage via LFS |
+| `docs/Kitsune复现报告最终版.pdf` | 1,330,084 | 1.27 MB | Exported report (own work) | Keep; future PR: move to `docx/` and manage via LFS |
 
-## 10. Recommended Actions for Existing Large Files
+### Recommended Future Actions
 
-The following actions are **proposed** for future execution (not yet applied):
+| Action | When |
+|---|---|
+| `git rm --cached Kitsune/Kitsune-py/mirai.pcap` | Separate cleanup PR |
+| Add `mirari.pcap` pattern to `.gitignore` | Same cleanup PR |
+| Move reports from `docs/` to `docx/` | Separate migration PR |
+| Migrate `docx/` files to Git LFS | Same migration PR (attribute already configured) |
+| `git lfs migrate` for historical LFS cleanup | Only if necessary; requires careful review |
 
-1. **`mirai.pcap` (~60 MB):** Consider one of:
-   - (Recommended) Add to `.gitignore` and remove from tracking via `git rm --cached`. Keep download instructions in `data/README.md`.
-   - Convert to Git LFS if retention in history is essential.
-
-2. **`mirai.zip` (~400 KB):** Small enough to stay, but conceptually should be treated like `mirai.pcap`. Consider adding to `.gitignore`.
-
-3. **`Kitsune paper.pdf` (~3 MB):** Part of the original `Kitsune-py` distribution. Acceptable to keep. Consider LFS if many such PDFs accumulate.
-
-4. **Own reports (`docs/*.docx`, `docs/*.pdf`):** These are formal deliverables and should be **retained**. When the `docx/` directory is adopted, they should be moved there and tracked via Git LFS.
-
-**Not yet executed:** `git rm --cached`, `git lfs migrate`, or `git filter-repo`. These require explicit human approval.
+**Not yet executed:** `git rm --cached`, `git lfs migrate`, `git filter-repo`,
+file moves, or any history-rewriting operations. These require explicit
+human approval in separate PRs.
 
 ## 11. Implementation Status
 
@@ -153,10 +194,11 @@ The following actions are **proposed** for future execution (not yet applied):
 |---|---|
 | `.gitignore` | Updated (this PR) |
 | `.gitattributes` | Created (this PR) |
-| `data/README.md` | Created (this PR) |
+| `data/README.md` | Updated (this PR) |
 | `results/README.md` | Created (this PR) |
 | `logs/README.md` | Created (this PR) |
-| `docs/repository_storage_policy.md` | Created (this PR) |
-| Migrate existing large files to LFS | Pending human review |
-| `git rm --cached` for mirai.pcap / mirai.zip | Pending human review |
-| `git lfs migrate` for historical cleanup | Pending human review |
+| `docs/repository_storage_policy.md` | Updated (this PR) |
+| Un-track `mirai.pcap` | Pending — separate PR |
+| Move reports `docs/` → `docx/` | Pending — separate PR |
+| Migrate `docx/` to LFS | Pending — same migration PR |
+| Historical LFS migration | Pending — human review required |
