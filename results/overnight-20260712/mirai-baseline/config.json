@@ -1,0 +1,9 @@
+{
+  "attack": "mirai-pcap",
+  "FMgrace": 5000,
+  "ADgrace": 50000,
+  "maxAE": 10,
+  "learning_rate": 0.1,
+  "hidden_ratio": 0.75,
+  "n_features": 100
+}

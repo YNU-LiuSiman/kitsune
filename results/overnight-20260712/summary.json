@@ -1,0 +1,17 @@
+{
+  "total_time_seconds": 1398.9658272266388,
+  "completed": 1,
+  "failed": 0,
+  "blocked": 1,
+  "total_rows": 764137,
+  "results": {
+    "mirai-pcap": {
+      "status": "completed",
+      "packets": 764137
+    },
+    "uci": {
+      "status": "blocked",
+      "message": "UCI data not found"
+    }
+  }
+}
