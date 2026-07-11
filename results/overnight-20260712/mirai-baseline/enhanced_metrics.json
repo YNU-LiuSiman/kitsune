@@ -1,0 +1,18 @@
+{
+  "total_packets": 764137,
+  "total_time_seconds": 1295.1228694915771,
+  "packets_per_second": 590.01,
+  "grace_rows": 55001,
+  "execution_rows": 709136,
+  "rmse_mean": 18.88658914665331,
+  "rmse_std": 456.75918433707216,
+  "rmse_min": 0.002398781532860884,
+  "rmse_max": 112667.70407752343,
+  "rmse_median": 17.943486791757845,
+  "rmse_p95": 18.686471024695244,
+  "rmse_p99": 18.818625188175062,
+  "rmse_p99_5": 18.856123738328254,
+  "nan_count": 0,
+  "inf_count": 0,
+  "zero_count_in_execution": 0
+}

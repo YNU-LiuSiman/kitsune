@@ -266,8 +266,8 @@ def run_mirai_pcap_baseline(experiment_dir, max_rows=None):
         "packets_per_second": len(rmse_list) / total_time if total_time > 0 else 0,
         "grace_rows": min(FMGRACE + ADGRACE + 1, len(rmse_list)),
         "execution_rows": max(0, len(rmse_list) - FMGRACE - ADGRACE - 1),
-        "rmse_mean": float(np.mean(rmse_arr[len(rmse_arr)//2:])) if len(rmse_arr) > 0 else None,
-        "rmse_std": float(np.std(rmse_arr[len(rmse_arr)//2:])) if len(rmse_arr) > 0 else None,
+        "rmse_mean": float(np.mean(rmse_arr[FMGRACE + ADGRACE + 1:])) if len(rmse_arr) > FMGRACE + ADGRACE else None,
+        "rmse_std": float(np.std(rmse_arr[FMGRACE + ADGRACE + 1:])) if len(rmse_arr) > FMGRACE + ADGRACE else None,
     }
     os.chdir(cwd)
     return metrics, rmse_arr, None
