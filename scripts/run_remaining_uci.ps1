@@ -19,7 +19,9 @@ function Save-Control([string]$Status, [string]$Attack, [string]$Phase, [string]
         ConvertTo-Json | Set-Content -LiteralPath $Control -Encoding utf8
 }
 function Find-File([string]$Dir, [string]$Needle) {
-    Get-ChildItem -LiteralPath $Dir -File | Where-Object { $_.Name -match $Needle -and $_.Name -match '\.csv(\.gz)?$' } | Select-Object -First 1
+    # Prefer the largest candidate: incomplete browser extractions are smaller
+    # than their complete source archive/CSV counterparts.
+    Get-ChildItem -LiteralPath $Dir -File | Where-Object { $_.Name -match $Needle -and $_.Name -match '\.csv(\.gz)?$' } | Sort-Object Length -Descending | Select-Object -First 1
 }
 function Disk-Ready {
     # Gzip is streamed by the runner; keep a 20 GiB safety reserve for RMSE/log artifacts.
