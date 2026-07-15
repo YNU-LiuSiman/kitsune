@@ -6,7 +6,7 @@
 - Governing plan: `docs/Kitsune_剩余实验执行规范.md` (SHA-256 `6C6A4095CAF21157EA5607239BDCF8BD9BA9CD3B442045F0661F05D4BFDF4C70`)
 - Branch: `exp/overnight-20260712`
 - HEAD: `ae29a9d`
-- Current milestone: validating isolated UCI runner before OS Scan rerun
+- Current milestone: eight-dataset UCI run completed and validated
 
 ## Recovery snapshot
 
@@ -25,6 +25,13 @@
 - Added `scripts/run_uci_experiment.py`: per-attack/per-phase output isolation, stream-based full precheck, data hashes, required artifact names, empty smoke RMSE files, state semantics, and threshold-free score metadata.
 - Syntax compilation and a compressed OS Scan CSV parsing check passed in the project `.venv`.
 - Next action: add and run synthetic runner tests for index/label variants and smoke/full isolation.
+
+## Completion validation
+
+- The serial orchestrator completed all eight remaining UCI datasets.
+- Each dataset has successful smoke-1000, smoke-10000, and full statuses.
+- Final artifact validation passed: 8 datasets, 20,253,460 total rows, 19,813,452 execution rows; required artifacts exist, RMSE and label row counts match, and no RMSE NaN/Inf was recorded.
+- Small validation summary: `results/overnight-20260712/uci_validation_summary.json`.
 
 ## Latest checks
 

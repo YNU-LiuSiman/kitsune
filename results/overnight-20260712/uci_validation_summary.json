@@ -1,0 +1,15 @@
+{
+  "status": "validated",
+  "validated_at": "2026-07-16T00:00:00+08:00",
+  "datasets_checked": 8,
+  "total_rows": 20253460,
+  "execution_rows": 19813452,
+  "required_artifacts_complete": true,
+  "rmse_label_lengths_match": true,
+  "rmse_nan_count": 0,
+  "rmse_inf_count": 0,
+  "notes": [
+    "All values are provisional exploratory results.",
+    "Threshold-dependent classification metrics were not calculated."
+  ]
+}
