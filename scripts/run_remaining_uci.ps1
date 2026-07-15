@@ -12,10 +12,12 @@ $DataRoot = Join-Path $Root 'data\kitsune'
 $Control = Join-Path $ResultRoot 'orchestrator-status.json'
 $LogRoot = Join-Path $ResultRoot 'orchestrator-logs'
 $Attacks = @('os_scan','fuzzing','ssl_renegotiation','arp_mitm','syn_dos','active_wiretap','ssdp_flood','video_injection')
+$GitSha = (& git -C $Root rev-parse --short HEAD 2>$null)
+$StartedAt = (Get-Date).ToUniversalTime().ToString('o')
 
 New-Item -ItemType Directory -Path $LogRoot -Force | Out-Null
 function Save-Control([string]$Status, [string]$Attack, [string]$Phase, [string]$Message) {
-    @{ status=$Status; attack=$Attack; phase=$Phase; pid=$PID; updated=(Get-Date).ToUniversalTime().ToString('o'); message=$Message } |
+    @{ status=$Status; attack=$Attack; phase=$Phase; pid=$PID; started=$StartedAt; git_commit=$GitSha; updated=(Get-Date).ToUniversalTime().ToString('o'); message=$Message } |
         ConvertTo-Json | Set-Content -LiteralPath $Control -Encoding utf8
 }
 function Find-File([string]$Dir, [string]$Needle) {
