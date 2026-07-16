@@ -1,0 +1,99 @@
+{
+  "attack": "ssl_renegotiation",
+  "execution_start_row": 55001,
+  "execution_rows": 2152570,
+  "labels": {
+    "meaning": {
+      "0": "benign",
+      "1": "attack"
+    },
+    "count": 2152570,
+    "benign_count": 2059918,
+    "attack_count": 92652
+  },
+  "score_label_exact_alignment": true,
+  "scores_finite": true,
+  "benign_rmse": {
+    "count": 2059918,
+    "median": 0.42478985873778463,
+    "mean": 178161342269.27606
+  },
+  "attack_rmse": {
+    "count": 92652,
+    "median": 200035556304.2381,
+    "mean": 7874217575002.722
+  },
+  "attack_intervals": {
+    "count": 29299,
+    "first_execution_index": 1265010,
+    "first_original_row": 1320011,
+    "sample_first_10": [
+      {
+        "execution_start": 1265010,
+        "execution_end": 1265020,
+        "original_start": 1320011,
+        "original_end": 1320021
+      },
+      {
+        "execution_start": 1265062,
+        "execution_end": 1265065,
+        "original_start": 1320063,
+        "original_end": 1320066
+      },
+      {
+        "execution_start": 1265067,
+        "execution_end": 1265073,
+        "original_start": 1320068,
+        "original_end": 1320074
+      },
+      {
+        "execution_start": 1265106,
+        "execution_end": 1265108,
+        "original_start": 1320107,
+        "original_end": 1320109
+      },
+      {
+        "execution_start": 1265110,
+        "execution_end": 1265116,
+        "original_start": 1320111,
+        "original_end": 1320117
+      },
+      {
+        "execution_start": 1265119,
+        "execution_end": 1265119,
+        "original_start": 1320120,
+        "original_end": 1320120
+      },
+      {
+        "execution_start": 1265166,
+        "execution_end": 1265176,
+        "original_start": 1320167,
+        "original_end": 1320177
+      },
+      {
+        "execution_start": 1265198,
+        "execution_end": 1265204,
+        "original_start": 1320199,
+        "original_end": 1320205
+      },
+      {
+        "execution_start": 1265206,
+        "execution_end": 1265209,
+        "original_start": 1320207,
+        "original_end": 1320210
+      },
+      {
+        "execution_start": 1265251,
+        "execution_end": 1265252,
+        "original_start": 1320252,
+        "original_end": 1320253
+      }
+    ]
+  },
+  "roc_auc_rmse": 0.9312873816814687,
+  "roc_auc_negative_rmse": 0.0687126183185312,
+  "score_direction": "higher_is_more_anomalous",
+  "training_rmse_available": false,
+  "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+  "threshold_readiness": "blocked_no_label_free_calibration_scores"
+}

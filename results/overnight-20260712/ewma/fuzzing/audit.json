@@ -1,0 +1,99 @@
+{
+  "attack": "fuzzing",
+  "execution_start_row": 55001,
+  "execution_rows": 2189138,
+  "labels": {
+    "meaning": {
+      "0": "benign",
+      "1": "attack"
+    },
+    "count": 2189138,
+    "benign_count": 1756355,
+    "attack_count": 432783
+  },
+  "score_label_exact_alignment": true,
+  "scores_finite": true,
+  "benign_rmse": {
+    "count": 1756355,
+    "median": 0.5417849394701412,
+    "mean": 0.47245905912439184
+  },
+  "attack_rmse": {
+    "count": 432783,
+    "median": 0.5440184748075653,
+    "mean": 0.5439276423328899
+  },
+  "attack_intervals": {
+    "count": 42362,
+    "first_execution_index": 1245004,
+    "first_original_row": 1300005,
+    "sample_first_10": [
+      {
+        "execution_start": 1245004,
+        "execution_end": 1245012,
+        "original_start": 1300005,
+        "original_end": 1300013
+      },
+      {
+        "execution_start": 1245017,
+        "execution_end": 1245017,
+        "original_start": 1300018,
+        "original_end": 1300018
+      },
+      {
+        "execution_start": 1245029,
+        "execution_end": 1245029,
+        "original_start": 1300030,
+        "original_end": 1300030
+      },
+      {
+        "execution_start": 1245031,
+        "execution_end": 1245043,
+        "original_start": 1300032,
+        "original_end": 1300044
+      },
+      {
+        "execution_start": 1245045,
+        "execution_end": 1245047,
+        "original_start": 1300046,
+        "original_end": 1300048
+      },
+      {
+        "execution_start": 1245073,
+        "execution_end": 1245082,
+        "original_start": 1300074,
+        "original_end": 1300083
+      },
+      {
+        "execution_start": 1245085,
+        "execution_end": 1245085,
+        "original_start": 1300086,
+        "original_end": 1300086
+      },
+      {
+        "execution_start": 1245088,
+        "execution_end": 1245088,
+        "original_start": 1300089,
+        "original_end": 1300089
+      },
+      {
+        "execution_start": 1245091,
+        "execution_end": 1245091,
+        "original_start": 1300092,
+        "original_end": 1300092
+      },
+      {
+        "execution_start": 1245093,
+        "execution_end": 1245093,
+        "original_start": 1300094,
+        "original_end": 1300094
+      }
+    ]
+  },
+  "roc_auc_rmse": 0.5335540328671935,
+  "roc_auc_negative_rmse": 0.4664459671328065,
+  "score_direction": "higher_is_more_anomalous",
+  "training_rmse_available": false,
+  "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+  "threshold_readiness": "blocked_no_label_free_calibration_scores"
+}

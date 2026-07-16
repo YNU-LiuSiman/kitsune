@@ -1,0 +1,850 @@
+{
+  "generated_at": "2026-07-16T01:23:16Z",
+  "status": "blocked",
+  "reason": "No training-period RMSE was retained. The available RMSE files begin at execution row 55001, so q/mean/MAD thresholds cannot be calibrated from training scores without inventing a calibration rule or using test labels.",
+  "prohibited_fallbacks": [
+    "test labels",
+    "test F1 selection",
+    "per-dataset attack-aware alpha or threshold selection"
+  ],
+  "required_user_decision": "Specify a protocol-authorized label-free calibration window, or authorize a fresh score-only baseline rerun that persists training-period RMSE without modifying official source or baseline outputs.",
+  "datasets": [
+    {
+      "attack": "mirai",
+      "execution_start_row": 55001,
+      "execution_rows": 709136,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 709136,
+        "benign_count": 66620,
+        "attack_count": 642516
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 66620,
+        "median": 0.00875149680340969,
+        "mean": 0.012632518223309321
+      },
+      "attack_rmse": {
+        "count": 642516,
+        "median": 36.08362179347944,
+        "mean": 29.725479121204508
+      },
+      "attack_intervals": {
+        "count": 1,
+        "first_execution_index": 66620,
+        "first_original_row": 121621,
+        "sample_first_10": [
+          {
+            "execution_start": 66620,
+            "execution_end": 709135,
+            "original_start": 121621,
+            "original_end": 764136
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.9481552338630767,
+      "roc_auc_negative_rmse": 0.05184476613692338,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "os_scan",
+      "execution_start_row": 55001,
+      "execution_rows": 1642850,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 1642850,
+        "benign_count": 1577150,
+        "attack_count": 65700
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 1577150,
+        "median": 0.1829472848736875,
+        "mean": 227615481.52602792
+      },
+      "attack_rmse": {
+        "count": 65700,
+        "median": 4.979693401146278,
+        "mean": 8994779588.825523
+      },
+      "attack_intervals": {
+        "count": 34069,
+        "first_execution_index": 1259657,
+        "first_original_row": 1314658,
+        "sample_first_10": [
+          {
+            "execution_start": 1259657,
+            "execution_end": 1259658,
+            "original_start": 1314658,
+            "original_end": 1314659
+          },
+          {
+            "execution_start": 1259686,
+            "execution_end": 1259688,
+            "original_start": 1314687,
+            "original_end": 1314689
+          },
+          {
+            "execution_start": 1259700,
+            "execution_end": 1259700,
+            "original_start": 1314701,
+            "original_end": 1314701
+          },
+          {
+            "execution_start": 1259711,
+            "execution_end": 1259711,
+            "original_start": 1314712,
+            "original_end": 1314712
+          },
+          {
+            "execution_start": 1259823,
+            "execution_end": 1259823,
+            "original_start": 1314824,
+            "original_end": 1314824
+          },
+          {
+            "execution_start": 1259908,
+            "execution_end": 1259908,
+            "original_start": 1314909,
+            "original_end": 1314909
+          },
+          {
+            "execution_start": 1260056,
+            "execution_end": 1260058,
+            "original_start": 1315057,
+            "original_end": 1315059
+          },
+          {
+            "execution_start": 1260086,
+            "execution_end": 1260086,
+            "original_start": 1315087,
+            "original_end": 1315087
+          },
+          {
+            "execution_start": 1260164,
+            "execution_end": 1260166,
+            "original_start": 1315165,
+            "original_end": 1315167
+          },
+          {
+            "execution_start": 1260334,
+            "execution_end": 1260334,
+            "original_start": 1315335,
+            "original_end": 1315335
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.9787543358728833,
+      "roc_auc_negative_rmse": 0.021245664127116756,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "fuzzing",
+      "execution_start_row": 55001,
+      "execution_rows": 2189138,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2189138,
+        "benign_count": 1756355,
+        "attack_count": 432783
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 1756355,
+        "median": 0.5417849394701412,
+        "mean": 0.47245905912439184
+      },
+      "attack_rmse": {
+        "count": 432783,
+        "median": 0.5440184748075653,
+        "mean": 0.5439276423328899
+      },
+      "attack_intervals": {
+        "count": 42362,
+        "first_execution_index": 1245004,
+        "first_original_row": 1300005,
+        "sample_first_10": [
+          {
+            "execution_start": 1245004,
+            "execution_end": 1245012,
+            "original_start": 1300005,
+            "original_end": 1300013
+          },
+          {
+            "execution_start": 1245017,
+            "execution_end": 1245017,
+            "original_start": 1300018,
+            "original_end": 1300018
+          },
+          {
+            "execution_start": 1245029,
+            "execution_end": 1245029,
+            "original_start": 1300030,
+            "original_end": 1300030
+          },
+          {
+            "execution_start": 1245031,
+            "execution_end": 1245043,
+            "original_start": 1300032,
+            "original_end": 1300044
+          },
+          {
+            "execution_start": 1245045,
+            "execution_end": 1245047,
+            "original_start": 1300046,
+            "original_end": 1300048
+          },
+          {
+            "execution_start": 1245073,
+            "execution_end": 1245082,
+            "original_start": 1300074,
+            "original_end": 1300083
+          },
+          {
+            "execution_start": 1245085,
+            "execution_end": 1245085,
+            "original_start": 1300086,
+            "original_end": 1300086
+          },
+          {
+            "execution_start": 1245088,
+            "execution_end": 1245088,
+            "original_start": 1300089,
+            "original_end": 1300089
+          },
+          {
+            "execution_start": 1245091,
+            "execution_end": 1245091,
+            "original_start": 1300092,
+            "original_end": 1300092
+          },
+          {
+            "execution_start": 1245093,
+            "execution_end": 1245093,
+            "original_start": 1300094,
+            "original_end": 1300094
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.5335540328671935,
+      "roc_auc_negative_rmse": 0.4664459671328065,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "ssl_renegotiation",
+      "execution_start_row": 55001,
+      "execution_rows": 2152570,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2152570,
+        "benign_count": 2059918,
+        "attack_count": 92652
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 2059918,
+        "median": 0.42478985873778463,
+        "mean": 178161342269.27606
+      },
+      "attack_rmse": {
+        "count": 92652,
+        "median": 200035556304.2381,
+        "mean": 7874217575002.722
+      },
+      "attack_intervals": {
+        "count": 29299,
+        "first_execution_index": 1265010,
+        "first_original_row": 1320011,
+        "sample_first_10": [
+          {
+            "execution_start": 1265010,
+            "execution_end": 1265020,
+            "original_start": 1320011,
+            "original_end": 1320021
+          },
+          {
+            "execution_start": 1265062,
+            "execution_end": 1265065,
+            "original_start": 1320063,
+            "original_end": 1320066
+          },
+          {
+            "execution_start": 1265067,
+            "execution_end": 1265073,
+            "original_start": 1320068,
+            "original_end": 1320074
+          },
+          {
+            "execution_start": 1265106,
+            "execution_end": 1265108,
+            "original_start": 1320107,
+            "original_end": 1320109
+          },
+          {
+            "execution_start": 1265110,
+            "execution_end": 1265116,
+            "original_start": 1320111,
+            "original_end": 1320117
+          },
+          {
+            "execution_start": 1265119,
+            "execution_end": 1265119,
+            "original_start": 1320120,
+            "original_end": 1320120
+          },
+          {
+            "execution_start": 1265166,
+            "execution_end": 1265176,
+            "original_start": 1320167,
+            "original_end": 1320177
+          },
+          {
+            "execution_start": 1265198,
+            "execution_end": 1265204,
+            "original_start": 1320199,
+            "original_end": 1320205
+          },
+          {
+            "execution_start": 1265206,
+            "execution_end": 1265209,
+            "original_start": 1320207,
+            "original_end": 1320210
+          },
+          {
+            "execution_start": 1265251,
+            "execution_end": 1265252,
+            "original_start": 1320252,
+            "original_end": 1320253
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.9312873816814687,
+      "roc_auc_negative_rmse": 0.0687126183185312,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "arp_mitm",
+      "execution_start_row": 55001,
+      "execution_rows": 2449266,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2449266,
+        "benign_count": 1303994,
+        "attack_count": 1145272
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 1303994,
+        "median": 0.7546849984351297,
+        "mean": 115745112.51951097
+      },
+      "attack_rmse": {
+        "count": 1145272,
+        "median": 1.1875810909297826,
+        "mean": 77898956.82988496
+      },
+      "attack_intervals": {
+        "count": 49867,
+        "first_execution_index": 1244999,
+        "first_original_row": 1300000,
+        "sample_first_10": [
+          {
+            "execution_start": 1244999,
+            "execution_end": 1245044,
+            "original_start": 1300000,
+            "original_end": 1300045
+          },
+          {
+            "execution_start": 1245046,
+            "execution_end": 1245129,
+            "original_start": 1300047,
+            "original_end": 1300130
+          },
+          {
+            "execution_start": 1245131,
+            "execution_end": 1245132,
+            "original_start": 1300132,
+            "original_end": 1300133
+          },
+          {
+            "execution_start": 1245134,
+            "execution_end": 1245139,
+            "original_start": 1300135,
+            "original_end": 1300140
+          },
+          {
+            "execution_start": 1245142,
+            "execution_end": 1245145,
+            "original_start": 1300143,
+            "original_end": 1300146
+          },
+          {
+            "execution_start": 1245147,
+            "execution_end": 1245149,
+            "original_start": 1300148,
+            "original_end": 1300150
+          },
+          {
+            "execution_start": 1245151,
+            "execution_end": 1245305,
+            "original_start": 1300152,
+            "original_end": 1300306
+          },
+          {
+            "execution_start": 1245307,
+            "execution_end": 1245309,
+            "original_start": 1300308,
+            "original_end": 1300310
+          },
+          {
+            "execution_start": 1245311,
+            "execution_end": 1245311,
+            "original_start": 1300312,
+            "original_end": 1300312
+          },
+          {
+            "execution_start": 1245313,
+            "execution_end": 1245316,
+            "original_start": 1300314,
+            "original_end": 1300317
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.8331619965818263,
+      "roc_auc_negative_rmse": 0.16683800341817365,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "syn_dos",
+      "execution_start_row": 55001,
+      "execution_rows": 2716275,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2716275,
+        "benign_count": 2709237,
+        "attack_count": 7038
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 2709237,
+        "median": 0.3327868103338572,
+        "mean": 2129407.635331193
+      },
+      "attack_rmse": {
+        "count": 7038,
+        "median": 0.5007033955409659,
+        "mean": 315656317.7375197
+      },
+      "attack_intervals": {
+        "count": 1113,
+        "first_execution_index": 2627348,
+        "first_original_row": 2682349,
+        "sample_first_10": [
+          {
+            "execution_start": 2627348,
+            "execution_end": 2627355,
+            "original_start": 2682349,
+            "original_end": 2682356
+          },
+          {
+            "execution_start": 2627398,
+            "execution_end": 2627408,
+            "original_start": 2682399,
+            "original_end": 2682409
+          },
+          {
+            "execution_start": 2627450,
+            "execution_end": 2627460,
+            "original_start": 2682451,
+            "original_end": 2682461
+          },
+          {
+            "execution_start": 2627501,
+            "execution_end": 2627511,
+            "original_start": 2682502,
+            "original_end": 2682512
+          },
+          {
+            "execution_start": 2627554,
+            "execution_end": 2627564,
+            "original_start": 2682555,
+            "original_end": 2682565
+          },
+          {
+            "execution_start": 2627607,
+            "execution_end": 2627614,
+            "original_start": 2682608,
+            "original_end": 2682615
+          },
+          {
+            "execution_start": 2627654,
+            "execution_end": 2627661,
+            "original_start": 2682655,
+            "original_end": 2682662
+          },
+          {
+            "execution_start": 2627700,
+            "execution_end": 2627708,
+            "original_start": 2682701,
+            "original_end": 2682709
+          },
+          {
+            "execution_start": 2627748,
+            "execution_end": 2627759,
+            "original_start": 2682749,
+            "original_end": 2682760
+          },
+          {
+            "execution_start": 2627767,
+            "execution_end": 2627774,
+            "original_start": 2682768,
+            "original_end": 2682775
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.7078738237646331,
+      "roc_auc_negative_rmse": 0.29212617623536685,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "active_wiretap",
+      "execution_start_row": 55001,
+      "execution_rows": 2223688,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2223688,
+        "benign_count": 1300472,
+        "attack_count": 923216
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 1300472,
+        "median": 0.6015750935491415,
+        "mean": 0.5889540429321773
+      },
+      "attack_rmse": {
+        "count": 923216,
+        "median": 0.5942553767852254,
+        "mean": 0.5605426592446838
+      },
+      "attack_intervals": {
+        "count": 47739,
+        "first_execution_index": 1244999,
+        "first_original_row": 1300000,
+        "sample_first_10": [
+          {
+            "execution_start": 1244999,
+            "execution_end": 1245169,
+            "original_start": 1300000,
+            "original_end": 1300170
+          },
+          {
+            "execution_start": 1245171,
+            "execution_end": 1245172,
+            "original_start": 1300172,
+            "original_end": 1300173
+          },
+          {
+            "execution_start": 1245174,
+            "execution_end": 1245176,
+            "original_start": 1300175,
+            "original_end": 1300177
+          },
+          {
+            "execution_start": 1245178,
+            "execution_end": 1245180,
+            "original_start": 1300179,
+            "original_end": 1300181
+          },
+          {
+            "execution_start": 1245183,
+            "execution_end": 1245314,
+            "original_start": 1300184,
+            "original_end": 1300315
+          },
+          {
+            "execution_start": 1245316,
+            "execution_end": 1245316,
+            "original_start": 1300317,
+            "original_end": 1300317
+          },
+          {
+            "execution_start": 1245318,
+            "execution_end": 1245320,
+            "original_start": 1300319,
+            "original_end": 1300321
+          },
+          {
+            "execution_start": 1245322,
+            "execution_end": 1245324,
+            "original_start": 1300323,
+            "original_end": 1300325
+          },
+          {
+            "execution_start": 1245327,
+            "execution_end": 1245456,
+            "original_start": 1300328,
+            "original_end": 1300457
+          },
+          {
+            "execution_start": 1245458,
+            "execution_end": 1245459,
+            "original_start": 1300459,
+            "original_end": 1300460
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.4246496737548602,
+      "roc_auc_negative_rmse": 0.5753503262451398,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "ssdp_flood",
+      "execution_start_row": 55001,
+      "execution_rows": 4022265,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 4022265,
+        "benign_count": 2582661,
+        "attack_count": 1439604
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 2582661,
+        "median": 0.5711718707606548,
+        "mean": 28470870.182997577
+      },
+      "attack_rmse": {
+        "count": 1439604,
+        "median": 30.182795040362386,
+        "mean": 31.176256325187726
+      },
+      "attack_intervals": {
+        "count": 10324,
+        "first_execution_index": 2558441,
+        "first_original_row": 2613442,
+        "sample_first_10": [
+          {
+            "execution_start": 2558441,
+            "execution_end": 2558441,
+            "original_start": 2613442,
+            "original_end": 2613442
+          },
+          {
+            "execution_start": 2562092,
+            "execution_end": 2562092,
+            "original_start": 2617093,
+            "original_end": 2617093
+          },
+          {
+            "execution_start": 2562967,
+            "execution_end": 2562967,
+            "original_start": 2617968,
+            "original_end": 2617968
+          },
+          {
+            "execution_start": 2566748,
+            "execution_end": 2566749,
+            "original_start": 2621749,
+            "original_end": 2621750
+          },
+          {
+            "execution_start": 2566751,
+            "execution_end": 2566771,
+            "original_start": 2621752,
+            "original_end": 2621772
+          },
+          {
+            "execution_start": 2566773,
+            "execution_end": 2566773,
+            "original_start": 2621774,
+            "original_end": 2621774
+          },
+          {
+            "execution_start": 2566776,
+            "execution_end": 2566776,
+            "original_start": 2621777,
+            "original_end": 2621777
+          },
+          {
+            "execution_start": 2566781,
+            "execution_end": 2566781,
+            "original_start": 2621782,
+            "original_end": 2621782
+          },
+          {
+            "execution_start": 2566785,
+            "execution_end": 2566831,
+            "original_start": 2621786,
+            "original_end": 2621832
+          },
+          {
+            "execution_start": 2566833,
+            "execution_end": 2566833,
+            "original_start": 2621834,
+            "original_end": 2621834
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.999672160444429,
+      "roc_auc_negative_rmse": 0.00032783955557100973,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    },
+    {
+      "attack": "video_injection",
+      "execution_start_row": 55001,
+      "execution_rows": 2417400,
+      "labels": {
+        "meaning": {
+          "0": "benign",
+          "1": "attack"
+        },
+        "count": 2417400,
+        "benign_count": 2314901,
+        "attack_count": 102499
+      },
+      "score_label_exact_alignment": true,
+      "scores_finite": true,
+      "benign_rmse": {
+        "count": 2314901,
+        "median": 0.546068531517464,
+        "mean": 758.8007143055539
+      },
+      "attack_rmse": {
+        "count": 102499,
+        "median": 0.5042782300233744,
+        "mean": 0.4888338559662196
+      },
+      "attack_intervals": {
+        "count": 17141,
+        "first_execution_index": 2076049,
+        "first_original_row": 2131050,
+        "sample_first_10": [
+          {
+            "execution_start": 2076049,
+            "execution_end": 2076049,
+            "original_start": 2131050,
+            "original_end": 2131050
+          },
+          {
+            "execution_start": 2076051,
+            "execution_end": 2076051,
+            "original_start": 2131052,
+            "original_end": 2131052
+          },
+          {
+            "execution_start": 2076053,
+            "execution_end": 2076056,
+            "original_start": 2131054,
+            "original_end": 2131057
+          },
+          {
+            "execution_start": 2076058,
+            "execution_end": 2076058,
+            "original_start": 2131059,
+            "original_end": 2131059
+          },
+          {
+            "execution_start": 2076060,
+            "execution_end": 2076061,
+            "original_start": 2131061,
+            "original_end": 2131062
+          },
+          {
+            "execution_start": 2076071,
+            "execution_end": 2076071,
+            "original_start": 2131072,
+            "original_end": 2131072
+          },
+          {
+            "execution_start": 2076085,
+            "execution_end": 2076085,
+            "original_start": 2131086,
+            "original_end": 2131086
+          },
+          {
+            "execution_start": 2076087,
+            "execution_end": 2076087,
+            "original_start": 2131088,
+            "original_end": 2131088
+          },
+          {
+            "execution_start": 2076089,
+            "execution_end": 2076089,
+            "original_start": 2131090,
+            "original_end": 2131090
+          },
+          {
+            "execution_start": 2076091,
+            "execution_end": 2076091,
+            "original_start": 2131092,
+            "original_end": 2131092
+          }
+        ]
+      },
+      "roc_auc_rmse": 0.48415748954235616,
+      "roc_auc_negative_rmse": 0.5158425104576438,
+      "score_direction": "higher_is_more_anomalous",
+      "training_rmse_available": false,
+      "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
+      "threshold_readiness": "blocked_no_label_free_calibration_scores"
+    }
+  ]
+}
