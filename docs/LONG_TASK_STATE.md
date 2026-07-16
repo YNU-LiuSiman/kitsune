@@ -2,11 +2,11 @@
 
 ## Current status
 
-- Status: validating
+- Status: done
 - Governing plan: `docs/LEAKY_BR_CUSUM_PLAN.md` plus the user-specified Leaky BR-CUSUM protocol
 - Branch: `phase/05b-leaky-br-cusum`
 - HEAD: `6d7f345`
-- Current milestone: final drift-control experiment completed; preparing checkpoint and Draft PR
+- Current milestone: final drift-control experiment committed; preparing closing Draft PR
 
 ## Recovery snapshot
 
@@ -76,10 +76,12 @@
   summaries, 36 comparison rows, 243 sensitivity rows, nine drift records and
   no copied raw files. Main rho=0.95 still had long non-zero runs across all
   nine datasets and zero lower-channel main-threshold alerts.
+- Checkpoint commits: `1a80be1` (Leaky detector/tests) and `7c6403d`
+  (nine-dataset closing results, plots and recovery note).
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Commit, push and create the closing Draft PR. Do not develop another method;
-   the next phase is final report/material preparation.
+3. Push and create the closing Draft PR. Do not develop another method; the
+   next phase is final report/material preparation.
