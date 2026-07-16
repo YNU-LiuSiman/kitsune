@@ -2,11 +2,11 @@
 
 ## Current status
 
-- Status: validating
+- Status: done
 - Governing plan: `docs/EWMA_IMPLEMENTATION_PLAN.md` plus the user-specified threshold/EWMA protocol
 - Branch: `phase/04-ewma`
 - HEAD: `0a1555f`
-- Current milestone: nine-dataset post-processing completed; preparing Git checkpoint and Draft PR update
+- Current milestone: nine-dataset post-processing committed; Draft PR update pending
 
 ## Recovery snapshot
 
@@ -55,9 +55,13 @@
   9 summaries, 486 threshold rows, 45 alpha rows, 9 completed statuses and no
   raw score/label copies in the EWMA output directory. Final full test suite:
   11/11 passed in 7.434 seconds.
+- Checkpoint commits: `b6aeffd` (implementation/tests) and `7412331`
+  (nine-dataset derived results, figures, protocol and recovery note).
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Inspect the staged small artifacts, commit, push, and update Draft PR #5.
+3. Push the committed phase branch and update Draft PR #5. Future work should
+   use the committed summaries and must not reinterpret the sensitivity grid as
+   test-label-selected tuning.
