@@ -1,0 +1,12 @@
+{
+  "attack": "ssdp_flood",
+  "execution_start_raw_index": 55001,
+  "calibration_rows": 10000,
+  "evaluation_start_raw_index": 65001,
+  "calibration_attack_count": 0,
+  "calibration_benign_count": 10000,
+  "calibration_contaminated": false,
+  "calibration_contamination_rate": 0.0,
+  "score_label_exact_alignment": true,
+  "score_direction": "higher_is_more_anomalous"
+}

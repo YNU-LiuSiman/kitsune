@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "calibration_rows": 10000,
+  "calibration_raw_start": 55001,
+  "calibration_raw_end": 65000,
+  "evaluation_start_raw_index": 65001,
+  "threshold_source": "first_10000_execution_scores",
+  "score_direction": "higher_is_more_anomalous",
+  "main_alpha": 0.1,
+  "main_threshold_method": "q99_5",
+  "ewma_initialization": "first_calibration_rmse",
+  "candidate_alphas": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "threshold_methods": [
+    "q99",
+    "q99_5",
+    "q99_9",
+    "mean_plus_3std",
+    "mean_plus_4std",
+    "mean_plus_5std",
+    "median_plus_3mad",
+    "median_plus_5mad",
+    "median_plus_7mad"
+  ],
+  "labels_used_for_calibration": false,
+  "prediction_rule": "score >= threshold"
+}
