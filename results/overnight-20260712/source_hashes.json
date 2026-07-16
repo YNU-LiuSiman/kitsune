@@ -1,0 +1,12 @@
+{
+  "mirai.zip": {
+    "sha256": "C753FA53FA1F252DF27CA493F6AD59D98529BB28F25F049571B92A58DAA9DDD6",
+    "size_bytes": 7824919,
+    "source": "https://github.com/ymirsky/Kitsune-py/raw/master/mirai.zip"
+  },
+  "script_version": {
+    "git_commit": "c4526a6",
+    "git_branch": "exp/overnight-20260712",
+    "note": "manifest.json has git_commit=unknown due to worktree .git being a file; use this for correct SHA"
+  }
+}

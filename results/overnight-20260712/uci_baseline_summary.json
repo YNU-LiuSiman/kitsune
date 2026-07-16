@@ -1,0 +1,1093 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T01:03:22Z",
+  "scope": "nine completed UCI baseline full results",
+  "threshold_metrics_omitted": [
+    "accuracy",
+    "precision",
+    "recall",
+    "f1"
+  ],
+  "datasets": [
+    {
+      "dataset": "mirai",
+      "total_rows": 764137,
+      "grace_rows": 55001,
+      "execution_rows": 709136,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 709136,
+      "benign_count": 66620,
+      "attack_count": 642516,
+      "attack_prevalence": 0.906054691906771,
+      "finite": true,
+      "roc_auc": 0.9481552338630767,
+      "pr_auc": 0.994779734236942,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 709136,
+        "min": 0.002183681563569268,
+        "median": 36.01367772409287,
+        "mean": 26.934096592760586,
+        "std": 14.726044967140309,
+        "p95": 36.71726472746698,
+        "p99": 36.84406526651681,
+        "p99_5": 36.879865914085364,
+        "p99_9": 36.948966374477266,
+        "max": 37.03836310511707
+      },
+      "benign_rmse_statistics": {
+        "count": 66620,
+        "min": 0.002183681563569268,
+        "median": 0.00875149680340969,
+        "mean": 0.012632518223309321,
+        "std": 0.05361307973751407,
+        "p95": 0.025960306727108966,
+        "p99": 0.07704155583735861,
+        "p99_5": 0.1060039819533086,
+        "p99_9": 0.2028044112573712,
+        "max": 6.341543879704575
+      },
+      "attack_rmse_statistics": {
+        "count": 642516,
+        "min": 0.002556342618927795,
+        "median": 36.08362179347944,
+        "mean": 29.725479121204508,
+        "std": 12.506045867023685,
+        "p95": 36.72764589846854,
+        "p99": 36.84941434537423,
+        "p99_5": 36.884305879558305,
+        "p99_9": 36.95244454326917,
+        "max": 37.03836310511707
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 505230,
+        "max_original_row_index": 560231,
+        "max_label": 1,
+        "top_10": [
+          {
+            "execution_row_index": 505230,
+            "original_row_index": 560231,
+            "rmse": 37.03836310511707,
+            "label": 1
+          },
+          {
+            "execution_row_index": 402749,
+            "original_row_index": 457750,
+            "rmse": 37.03706191373538,
+            "label": 1
+          },
+          {
+            "execution_row_index": 505229,
+            "original_row_index": 560230,
+            "rmse": 37.03652365425519,
+            "label": 1
+          },
+          {
+            "execution_row_index": 402748,
+            "original_row_index": 457749,
+            "rmse": 37.033030283477785,
+            "label": 1
+          },
+          {
+            "execution_row_index": 505228,
+            "original_row_index": 560229,
+            "rmse": 37.033006998574024,
+            "label": 1
+          },
+          {
+            "execution_row_index": 690115,
+            "original_row_index": 745116,
+            "rmse": 37.03162700519522,
+            "label": 1
+          },
+          {
+            "execution_row_index": 690114,
+            "original_row_index": 745115,
+            "rmse": 37.02934812499324,
+            "label": 1
+          },
+          {
+            "execution_row_index": 480585,
+            "original_row_index": 535586,
+            "rmse": 37.02928682710628,
+            "label": 1
+          },
+          {
+            "execution_row_index": 402747,
+            "original_row_index": 457748,
+            "rmse": 37.0287372394851,
+            "label": 1
+          },
+          {
+            "execution_row_index": 341213,
+            "original_row_index": 396214,
+            "rmse": 37.02807042182671,
+            "label": 1
+          }
+        ],
+        "max_to_median_ratio": 1.0284526725894116,
+        "interpretation": "finite extreme values with verified score/label alignment; could reflect true attack transitions or model/input dynamics and are retained"
+      }
+    },
+    {
+      "dataset": "os_scan",
+      "total_rows": 1697851,
+      "grace_rows": 55001,
+      "execution_rows": 1642850,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 1642850,
+      "benign_count": 1577150,
+      "attack_count": 65700,
+      "attack_prevalence": 0.039991478223818364,
+      "finite": true,
+      "roc_auc": 0.9787543358728833,
+      "pr_auc": 0.4995091711246785,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 1642850,
+        "min": 0.006006674553391451,
+        "median": 0.18677810156149904,
+        "mean": 578227334.0077375,
+        "std": 161585280039.40115,
+        "p95": 4.7093045798840985,
+        "p99": 10.090454570521864,
+        "p99_5": 10.914800160972478,
+        "p99_9": 11.498573747232726,
+        "max": 81681516245050.86
+      },
+      "benign_rmse_statistics": {
+        "count": 1577150,
+        "min": 0.006006674553391451,
+        "median": 0.1829472848736875,
+        "mean": 227615481.52602792,
+        "std": 98565631896.51282,
+        "p95": 0.33204919318023224,
+        "p99": 8.282903519220802,
+        "p99_5": 10.167738120029243,
+        "p99_9": 11.299807150008947,
+        "max": 54138752773185.74
+      },
+      "attack_rmse_statistics": {
+        "count": 65700,
+        "min": 0.22021724072988896,
+        "median": 4.979693401146278,
+        "mean": 8994779588.825523,
+        "std": 647760917318.4669,
+        "p95": 11.081286687969683,
+        "p99": 11.533772629267824,
+        "p99_5": 11.596916690226285,
+        "p99_9": 11.651946347567185,
+        "max": 81681516245050.86
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 1515613,
+        "max_original_row_index": 1570614,
+        "max_label": 1,
+        "top_10": [
+          {
+            "execution_row_index": 1515613,
+            "original_row_index": 1570614,
+            "rmse": 81681516245050.86,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1515614,
+            "original_row_index": 1570615,
+            "rmse": 54138752773185.74,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1515635,
+            "original_row_index": 1570636,
+            "rmse": 51879263319213.484,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1515637,
+            "original_row_index": 1570638,
+            "rmse": 50717494253154.08,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1515636,
+            "original_row_index": 1570637,
+            "rmse": 50163979448070.64,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1515647,
+            "original_row_index": 1570648,
+            "rmse": 49854047779583.266,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1515612,
+            "original_row_index": 1570613,
+            "rmse": 46789773257898.4,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1515648,
+            "original_row_index": 1570649,
+            "rmse": 46522795149276.22,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1515649,
+            "original_row_index": 1570650,
+            "rmse": 43049586303329.984,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1515650,
+            "original_row_index": 1570651,
+            "rmse": 42293192219389.91,
+            "label": 1
+          }
+        ],
+        "max_to_median_ratio": 437318484138014.4,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "fuzzing",
+      "total_rows": 2244139,
+      "grace_rows": 55001,
+      "execution_rows": 2189138,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2189138,
+      "benign_count": 1756355,
+      "attack_count": 432783,
+      "attack_prevalence": 0.1976956226606089,
+      "finite": true,
+      "roc_auc": 0.5335540328671935,
+      "pr_auc": 0.19471720201538165,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2189138,
+        "min": 0.0030785301724197364,
+        "median": 0.5434836012206399,
+        "mean": 0.4865880851824674,
+        "std": 1.5671092529175825,
+        "p95": 0.5765693812372625,
+        "p99": 0.5798746654647613,
+        "p99_5": 0.5811233544522778,
+        "p99_9": 0.585565941906954,
+        "max": 957.4112360587617
+      },
+      "benign_rmse_statistics": {
+        "count": 1756355,
+        "min": 0.0030785301724197364,
+        "median": 0.5417849394701412,
+        "mean": 0.47245905912439184,
+        "std": 1.6422976133085891,
+        "p95": 0.5769500050250408,
+        "p99": 0.5803444547853023,
+        "p99_5": 0.5814603461843209,
+        "p99_9": 0.5880948530952093,
+        "max": 957.4112360587617
+      },
+      "attack_rmse_statistics": {
+        "count": 432783,
+        "min": 0.06931822488513642,
+        "median": 0.5440184748075653,
+        "mean": 0.5439276423328899,
+        "std": 1.2134370594862511,
+        "p95": 0.5479122812995921,
+        "p99": 0.5520891035203004,
+        "p99_5": 0.5540697573865729,
+        "p99_9": 0.5597523495447774,
+        "max": 735.1278494344449
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 456335,
+        "max_original_row_index": 511336,
+        "max_label": 0,
+        "top_10": [
+          {
+            "execution_row_index": 456335,
+            "original_row_index": 511336,
+            "rmse": 957.4112360587617,
+            "label": 0
+          },
+          {
+            "execution_row_index": 31115,
+            "original_row_index": 86116,
+            "rmse": 957.4099285087904,
+            "label": 0
+          },
+          {
+            "execution_row_index": 31116,
+            "original_row_index": 86117,
+            "rmse": 818.4867247372923,
+            "label": 0
+          },
+          {
+            "execution_row_index": 456353,
+            "original_row_index": 511354,
+            "rmse": 814.0774303043188,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1262415,
+            "original_row_index": 1317416,
+            "rmse": 735.1278494344449,
+            "label": 1
+          },
+          {
+            "execution_row_index": 31250,
+            "original_row_index": 86251,
+            "rmse": 623.5441624963705,
+            "label": 0
+          },
+          {
+            "execution_row_index": 456475,
+            "original_row_index": 511476,
+            "rmse": 616.9973629157237,
+            "label": 0
+          },
+          {
+            "execution_row_index": 31251,
+            "original_row_index": 86252,
+            "rmse": 488.5000492313101,
+            "label": 0
+          },
+          {
+            "execution_row_index": 456493,
+            "original_row_index": 511494,
+            "rmse": 477.38686639154184,
+            "label": 0
+          },
+          {
+            "execution_row_index": 31271,
+            "original_row_index": 86272,
+            "rmse": 394.03954592911975,
+            "label": 0
+          }
+        ],
+        "max_to_median_ratio": 1761.61936424293,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "ssl_renegotiation",
+      "total_rows": 2207571,
+      "grace_rows": 55001,
+      "execution_rows": 2152570,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2152570,
+      "benign_count": 2059918,
+      "attack_count": 92652,
+      "attack_prevalence": 0.04304250268283958,
+      "finite": true,
+      "roc_auc": 0.9312873816814687,
+      "pr_auc": 0.5865630778131513,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2152570,
+        "min": 0.009519510274939417,
+        "median": 0.4272355395436165,
+        "mean": 509418863313.9897,
+        "std": 10958974875887.346,
+        "p95": 7261354610.62621,
+        "p99": 3926626464457.2266,
+        "p99_5": 13320505958040.605,
+        "p99_9": 115266345955470.67,
+        "max": 1575826105023763.2
+      },
+      "benign_rmse_statistics": {
+        "count": 2059918,
+        "min": 0.009519510274939417,
+        "median": 0.42478985873778463,
+        "mean": 178161342269.27606,
+        "std": 6674438095080.889,
+        "p95": 0.8037370644431197,
+        "p99": 307769851873.31683,
+        "p99_5": 2099573329914.5654,
+        "p99_9": 31106238154904.99,
+        "max": 1575826105023763.2
+      },
+      "attack_rmse_statistics": {
+        "count": 92652,
+        "min": 0.05551266631181479,
+        "median": 200035556304.2381,
+        "mean": 7874217575002.722,
+        "std": 41750849142361.09,
+        "p95": 26347412159717.16,
+        "p99": 188750236571154.3,
+        "p99_5": 335199917400773.06,
+        "p99_9": 605241726943980.0,
+        "max": 710754978741012.6
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 551218,
+        "max_original_row_index": 606219,
+        "max_label": 0,
+        "top_10": [
+          {
+            "execution_row_index": 551218,
+            "original_row_index": 606219,
+            "rmse": 1575826105023763.2,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551217,
+            "original_row_index": 606218,
+            "rmse": 1373074846701938.8,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551305,
+            "original_row_index": 606306,
+            "rmse": 1195925607630886.8,
+            "label": 0
+          },
+          {
+            "execution_row_index": 550532,
+            "original_row_index": 605533,
+            "rmse": 1081111544518551.6,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551216,
+            "original_row_index": 606217,
+            "rmse": 954611583635303.2,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551306,
+            "original_row_index": 606307,
+            "rmse": 941312669112506.8,
+            "label": 0
+          },
+          {
+            "execution_row_index": 550526,
+            "original_row_index": 605527,
+            "rmse": 830723466223387.9,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551387,
+            "original_row_index": 606388,
+            "rmse": 819326620861810.8,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551472,
+            "original_row_index": 606473,
+            "rmse": 818748546969226.2,
+            "label": 0
+          },
+          {
+            "execution_row_index": 551392,
+            "original_row_index": 606393,
+            "rmse": 817150604456006.1,
+            "label": 0
+          }
+        ],
+        "max_to_median_ratio": 3688424672505240.5,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "arp_mitm",
+      "total_rows": 2504267,
+      "grace_rows": 55001,
+      "execution_rows": 2449266,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2449266,
+      "benign_count": 1303994,
+      "attack_count": 1145272,
+      "attack_prevalence": 0.4675980477416499,
+      "finite": true,
+      "roc_auc": 0.8331619965818263,
+      "pr_auc": 0.865135992608366,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2449266,
+        "min": 0.002149551526295603,
+        "median": 1.0500410661246868,
+        "mean": 98048324.00451532,
+        "std": 42098492755.2018,
+        "p95": 1.1956344027272734,
+        "p99": 1.1986159543842423,
+        "p99_5": 1.1991925740779918,
+        "p99_9": 1.1999977983421728,
+        "max": 30230391341654.543
+      },
+      "benign_rmse_statistics": {
+        "count": 1303994,
+        "min": 0.002149551526295603,
+        "median": 0.7546849984351297,
+        "mean": 115745112.51951097,
+        "std": 53046118828.62096,
+        "p95": 1.175007508291877,
+        "p99": 1.1803419606037104,
+        "p99_5": 1.1810348704661235,
+        "p99_9": 1.1822608256474534,
+        "max": 30230391341654.543
+      },
+      "attack_rmse_statistics": {
+        "count": 1145272,
+        "min": 0.09012911088243308,
+        "median": 1.1875810909297826,
+        "mean": 77898956.82988496,
+        "std": 24214033767.71943,
+        "p95": 1.1973584006668048,
+        "p99": 1.199241233872089,
+        "p99_5": 1.1996668981057346,
+        "p99_9": 1.200216233754454,
+        "max": 11376653893427.832
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 1546010,
+        "max_original_row_index": 1601011,
+        "max_label": 0,
+        "top_10": [
+          {
+            "execution_row_index": 1546010,
+            "original_row_index": 1601011,
+            "rmse": 30230391341654.543,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1426176,
+            "original_row_index": 1481177,
+            "rmse": 30030786442548.996,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2258235,
+            "original_row_index": 2313236,
+            "rmse": 30007151611352.207,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2138366,
+            "original_row_index": 2193367,
+            "rmse": 29854184859645.203,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1425558,
+            "original_row_index": 1480559,
+            "rmse": 11376653893427.832,
+            "label": 1
+          },
+          {
+            "execution_row_index": 2137900,
+            "original_row_index": 2192901,
+            "rmse": 11357409477451.479,
+            "label": 1
+          },
+          {
+            "execution_row_index": 2257565,
+            "original_row_index": 2312566,
+            "rmse": 10274447876777.986,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1545390,
+            "original_row_index": 1600391,
+            "rmse": 10267362756014.8,
+            "label": 1
+          },
+          {
+            "execution_row_index": 2137918,
+            "original_row_index": 2192919,
+            "rmse": 6410885422624.803,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1425559,
+            "original_row_index": 1480560,
+            "rmse": 6394217864545.454,
+            "label": 1
+          }
+        ],
+        "max_to_median_ratio": 28789722913622.547,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "syn_dos",
+      "total_rows": 2771276,
+      "grace_rows": 55001,
+      "execution_rows": 2716275,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2716275,
+      "benign_count": 2709237,
+      "attack_count": 7038,
+      "attack_prevalence": 0.0025910484026838224,
+      "finite": true,
+      "roc_auc": 0.7078738237646331,
+      "pr_auc": 0.004536622362296789,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2716275,
+        "min": 0.0038614914032594977,
+        "median": 0.3380672686467162,
+        "mean": 2941771.0349498633,
+        "std": 1626751405.6988518,
+        "p95": 0.5576291746204948,
+        "p99": 0.6379007781393659,
+        "p99_5": 0.668738548297484,
+        "p99_9": 0.6726945434183274,
+        "max": 1425324786148.0867
+      },
+      "benign_rmse_statistics": {
+        "count": 2709237,
+        "min": 0.0038614914032594977,
+        "median": 0.3327868103338572,
+        "mean": 2129407.635331193,
+        "std": 1350868259.2318895,
+        "p95": 0.5577233769688443,
+        "p99": 0.6382991069874638,
+        "p99_5": 0.6687462349819,
+        "p99_9": 0.6726981764625677,
+        "max": 1291356201249.0415
+      },
+      "attack_rmse_statistics": {
+        "count": 7038,
+        "min": 0.3261194135339948,
+        "median": 0.5007033955409659,
+        "mean": 315656317.7375197,
+        "std": 17854139895.019867,
+        "p95": 0.5061129624056064,
+        "p99": 0.5085984422064525,
+        "p99_5": 0.5095076048359128,
+        "p99_9": 0.511413746799104,
+        "max": 1425324786148.0867
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 2660506,
+        "max_original_row_index": 2715507,
+        "max_label": 1,
+        "top_10": [
+          {
+            "execution_row_index": 2660506,
+            "original_row_index": 2715507,
+            "rmse": 1425324786148.0867,
+            "label": 1
+          },
+          {
+            "execution_row_index": 2658464,
+            "original_row_index": 2713465,
+            "rmse": 1291356201249.0415,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2659023,
+            "original_row_index": 2714024,
+            "rmse": 1259504639460.92,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2660139,
+            "original_row_index": 2715140,
+            "rmse": 782859994867.0702,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2656087,
+            "original_row_index": 2711088,
+            "rmse": 547464849835.79767,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2655387,
+            "original_row_index": 2710388,
+            "rmse": 508771787320.3328,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2662114,
+            "original_row_index": 2717115,
+            "rmse": 415102516149.2242,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2657709,
+            "original_row_index": 2712710,
+            "rmse": 410840944315.71277,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2660530,
+            "original_row_index": 2715531,
+            "rmse": 395207205578.5185,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2656058,
+            "original_row_index": 2711059,
+            "rmse": 333637726230.5968,
+            "label": 1
+          }
+        ],
+        "max_to_median_ratio": 4216098150683.6313,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "active_wiretap",
+      "total_rows": 2278689,
+      "grace_rows": 55001,
+      "execution_rows": 2223688,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2223688,
+      "benign_count": 1300472,
+      "attack_count": 923216,
+      "attack_prevalence": 0.4151733516572469,
+      "finite": true,
+      "roc_auc": 0.4246496737548602,
+      "pr_auc": 0.3437812203361781,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2223688,
+        "min": 0.002589283336314812,
+        "median": 0.5984367864328801,
+        "mean": 0.5771583935414206,
+        "std": 0.23058992080599403,
+        "p95": 0.8646242063467299,
+        "p99": 0.8756855437757616,
+        "p99_5": 0.8772230745012093,
+        "p99_9": 0.8796356948361902,
+        "max": 26.9787951035005
+      },
+      "benign_rmse_statistics": {
+        "count": 1300472,
+        "min": 0.002589283336314812,
+        "median": 0.6015750935491415,
+        "mean": 0.5889540429321773,
+        "std": 0.26951073827132094,
+        "p95": 0.8699027487492786,
+        "p99": 0.8769435980319101,
+        "p99_5": 0.8782795452818131,
+        "p99_9": 0.8800889001821667,
+        "max": 26.942415854734428
+      },
+      "attack_rmse_statistics": {
+        "count": 923216,
+        "min": 0.11924363422984531,
+        "median": 0.5942553767852254,
+        "mean": 0.5605426592446838,
+        "std": 0.15900174223477775,
+        "p95": 0.77856268634802,
+        "p99": 0.800555482366694,
+        "p99_5": 0.8475067343067175,
+        "p99_9": 0.8496355050166596,
+        "max": 26.9787951035005
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 1278533,
+        "max_original_row_index": 1333534,
+        "max_label": 1,
+        "top_10": [
+          {
+            "execution_row_index": 1278533,
+            "original_row_index": 1333534,
+            "rmse": 26.9787951035005,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1256638,
+            "original_row_index": 1311639,
+            "rmse": 26.97867405948566,
+            "label": 1
+          },
+          {
+            "execution_row_index": 704850,
+            "original_row_index": 759851,
+            "rmse": 26.942415854734428,
+            "label": 0
+          },
+          {
+            "execution_row_index": 20038,
+            "original_row_index": 75039,
+            "rmse": 26.9412979577197,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1259730,
+            "original_row_index": 1314731,
+            "rmse": 26.184601958690074,
+            "label": 1
+          },
+          {
+            "execution_row_index": 704909,
+            "original_row_index": 759910,
+            "rmse": 23.027089833863208,
+            "label": 0
+          },
+          {
+            "execution_row_index": 20082,
+            "original_row_index": 75083,
+            "rmse": 22.81022768229016,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1257437,
+            "original_row_index": 1312438,
+            "rmse": 22.47882598256049,
+            "label": 1
+          },
+          {
+            "execution_row_index": 1256731,
+            "original_row_index": 1311732,
+            "rmse": 18.978590102860636,
+            "label": 1
+          },
+          {
+            "execution_row_index": 705077,
+            "original_row_index": 760078,
+            "rmse": 17.528375589293223,
+            "label": 0
+          }
+        ],
+        "max_to_median_ratio": 45.08211345815454,
+        "interpretation": "finite extreme values with verified score/label alignment; could reflect true attack transitions or model/input dynamics and are retained"
+      }
+    },
+    {
+      "dataset": "ssdp_flood",
+      "total_rows": 4077266,
+      "grace_rows": 55001,
+      "execution_rows": 4022265,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 4022265,
+      "benign_count": 2582661,
+      "attack_count": 1439604,
+      "attack_prevalence": 0.35790879019656835,
+      "finite": true,
+      "roc_auc": 0.999672160444429,
+      "pr_auc": 0.9994999349439946,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 4022265,
+        "min": 0.003320273389509103,
+        "median": 0.6482526240959943,
+        "mean": 18280906.638213545,
+        "std": 12495793185.194357,
+        "p95": 36.73525272457935,
+        "p99": 40.44115089235927,
+        "p99_5": 41.21113939033553,
+        "p99_9": 43.25057028882443,
+        "max": 11290392628059.652
+      },
+      "benign_rmse_statistics": {
+        "count": 2582661,
+        "min": 0.003320273389509103,
+        "median": 0.5711718707606548,
+        "mean": 28470870.182997577,
+        "std": 15594275674.870565,
+        "p95": 0.7367674777947764,
+        "p99": 0.7588174480939309,
+        "p99_5": 0.8101469405572214,
+        "p99_9": 1.383455222528636,
+        "max": 11290392628059.652
+      },
+      "attack_rmse_statistics": {
+        "count": 1439604,
+        "min": 0.16189413304137942,
+        "median": 30.182795040362386,
+        "mean": 31.176256325187726,
+        "std": 4.991690675182824,
+        "p95": 40.091549925247826,
+        "p99": 41.97063535396555,
+        "p99_5": 42.87413709297698,
+        "p99_9": 43.58177037988819,
+        "max": 43.7656641048466
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 3977133,
+        "max_original_row_index": 4032134,
+        "max_label": 0,
+        "top_10": [
+          {
+            "execution_row_index": 3977133,
+            "original_row_index": 4032134,
+            "rmse": 11290392628059.652,
+            "label": 0
+          },
+          {
+            "execution_row_index": 3904137,
+            "original_row_index": 3959138,
+            "rmse": 9074685679172.168,
+            "label": 0
+          },
+          {
+            "execution_row_index": 3036148,
+            "original_row_index": 3091149,
+            "rmse": 9047706784657.629,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2750497,
+            "original_row_index": 2805498,
+            "rmse": 8837065170827.377,
+            "label": 0
+          },
+          {
+            "execution_row_index": 3417779,
+            "original_row_index": 3472780,
+            "rmse": 8272568302010.574,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2702970,
+            "original_row_index": 2757971,
+            "rmse": 8205850795957.469,
+            "label": 0
+          },
+          {
+            "execution_row_index": 3892148,
+            "original_row_index": 3947149,
+            "rmse": 7373703897919.082,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2679193,
+            "original_row_index": 2734194,
+            "rmse": 6903853954133.854,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2667388,
+            "original_row_index": 2722389,
+            "rmse": 4524777517630.495,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2690062,
+            "original_row_index": 2745063,
+            "rmse": 43.7656641048466,
+            "label": 1
+          }
+        ],
+        "max_to_median_ratio": 17416655495694.15,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    },
+    {
+      "dataset": "video_injection",
+      "total_rows": 2472401,
+      "grace_rows": 55001,
+      "execution_rows": 2417400,
+      "score_direction": "higher_is_more_anomalous",
+      "label_count": 2417400,
+      "benign_count": 2314901,
+      "attack_count": 102499,
+      "attack_prevalence": 0.04240051294779515,
+      "finite": true,
+      "roc_auc": 0.48415748954235616,
+      "pr_auc": 0.03824625799716856,
+      "metric_unavailable_reason": null,
+      "rmse_statistics": {
+        "count": 2417400,
+        "min": 0.002885534193012365,
+        "median": 0.5348309846772908,
+        "mean": 726.6479016000843,
+        "std": 133931.8545978428,
+        "p95": 0.5739342537012763,
+        "p99": 0.5745773607033832,
+        "p99_5": 0.5747937569834743,
+        "p99_9": 0.5763605898214855,
+        "max": 44570416.83903082
+      },
+      "benign_rmse_statistics": {
+        "count": 2314901,
+        "min": 0.002885534193012365,
+        "median": 0.546068531517464,
+        "mean": 758.8007143055539,
+        "std": 136864.76235724354,
+        "p95": 0.5739606837814982,
+        "p99": 0.5745912428370911,
+        "p99_5": 0.5748079992333072,
+        "p99_9": 0.5765051064072538,
+        "max": 44570416.83903082
+      },
+      "attack_rmse_statistics": {
+        "count": 102499,
+        "min": 0.13500110912170107,
+        "median": 0.5042782300233744,
+        "mean": 0.4888338559662196,
+        "std": 0.048885993560023606,
+        "p95": 0.5728681021845237,
+        "p99": 0.5734328730822102,
+        "p99_5": 0.5735411011073319,
+        "p99_9": 0.5737084599397274,
+        "max": 0.5739624160832975
+      },
+      "extreme_audit": {
+        "max_execution_row_index": 2236737,
+        "max_original_row_index": 2291738,
+        "max_label": 0,
+        "top_10": [
+          {
+            "execution_row_index": 2236737,
+            "original_row_index": 2291738,
+            "rmse": 44570416.83903082,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2169962,
+            "original_row_index": 2224963,
+            "rmse": 44112562.693184435,
+            "label": 0
+          },
+          {
+            "execution_row_index": 267709,
+            "original_row_index": 322710,
+            "rmse": 44038223.46567986,
+            "label": 0
+          },
+          {
+            "execution_row_index": 947309,
+            "original_row_index": 1002310,
+            "rmse": 43965776.604905255,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1083181,
+            "original_row_index": 1138182,
+            "rmse": 43943734.71223215,
+            "label": 0
+          },
+          {
+            "execution_row_index": 1831255,
+            "original_row_index": 1886256,
+            "rmse": 43934254.57374606,
+            "label": 0
+          },
+          {
+            "execution_row_index": 63768,
+            "original_row_index": 118769,
+            "rmse": 43926454.17575315,
+            "label": 0
+          },
+          {
+            "execution_row_index": 947356,
+            "original_row_index": 1002357,
+            "rmse": 43904705.3257449,
+            "label": 0
+          },
+          {
+            "execution_row_index": 2298695,
+            "original_row_index": 2353696,
+            "rmse": 43903180.972271614,
+            "label": 0
+          },
+          {
+            "execution_row_index": 471903,
+            "original_row_index": 526904,
+            "rmse": 43888685.767348275,
+            "label": 0
+          }
+        ],
+        "max_to_median_ratio": 83335517.41757062,
+        "interpretation": "extreme relative magnitude; score/label alignment is verified, but input scale and normalization boundary should be inspected before causal attribution"
+      }
+    }
+  ]
+}

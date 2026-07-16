@@ -1,0 +1,14 @@
+{
+  "experiment_id": "overnight-20260712",
+  "timestamp": "2026-07-11T18:40:04.756978+00:00",
+  "git_commit": "unknown",
+  "git_branch": "unknown",
+  "python_version": "3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:12:50) [MSC v.1942 64 bit (AMD64)]",
+  "numpy_version": "2.5.1",
+  "args": {
+    "max_rows": null,
+    "output_dir": "results/overnight-20260712",
+    "no_overwrite": false,
+    "attack": null
+  }
+}

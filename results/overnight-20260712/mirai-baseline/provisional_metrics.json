@@ -1,0 +1,9 @@
+{
+  "total_packets": 764137,
+  "total_time_seconds": 1295.1228694915771,
+  "packets_per_second": 590.0112012538048,
+  "grace_rows": 55001,
+  "execution_rows": 709136,
+  "rmse_mean": 24.75260325426442,
+  "rmse_std": 607.5724280371367
+}

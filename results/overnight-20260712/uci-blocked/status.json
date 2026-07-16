@@ -1,0 +1,5 @@
+{
+  "status": "blocked",
+  "message": "UCI data not available. Use scripts/download_uci_kitsune.py to download. Direct URL: https://archive.ics.uci.edu/static/public/516/kitsune+network+attack+dataset.zip (17.7 GB zip). HTTPS download failed: SSL connect timeout. User must download manually.",
+  "updated": "2026-07-11T19:03:23.722645+00:00"
+}
