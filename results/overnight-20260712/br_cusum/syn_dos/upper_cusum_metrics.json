@@ -1,0 +1,29 @@
+{
+  "k": 0.5,
+  "threshold": 904.6670539367751,
+  "metrics": {
+    "roc_auc": 0.976441031199883,
+    "pr_auc": 0.0475785005002259,
+    "precision": 0.0026006226270427063,
+    "recall": 1.0,
+    "f1": 0.005187753864003158,
+    "accuracy": 0.0026006226270427063,
+    "specificity": 0.0,
+    "fpr": 1.0,
+    "fnr": 0.0,
+    "tp": 7038,
+    "fp": 2699237,
+    "tn": 0,
+    "fn": 0,
+    "first_attack_evaluation_index": 2617348,
+    "first_attack_raw_index": 2682349,
+    "first_detection_evaluation_index": 2617348,
+    "first_detection_raw_index": 2682349,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 1113,
+    "detected_attack_intervals": 1113,
+    "attack_interval_detection_rate": 1.0,
+    "benign_false_positive_count": 2699237,
+    "continuous_alert_segments": 1
+  }
+}

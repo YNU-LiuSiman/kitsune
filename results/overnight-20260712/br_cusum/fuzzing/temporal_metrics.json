@@ -1,0 +1,38 @@
+{
+  "baseline": {
+    "first_attack_evaluation_index": 1235004,
+    "first_attack_raw_index": 1300005,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 42362,
+    "detected_attack_intervals": 42352,
+    "attack_interval_detection_rate": 0.9997639393796327,
+    "continuous_alert_segments": 6509
+  },
+  "robust_two_sided": {
+    "first_attack_evaluation_index": 1235004,
+    "first_attack_raw_index": 1300005,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 42362,
+    "detected_attack_intervals": 42352,
+    "attack_interval_detection_rate": 0.9997639393796327,
+    "continuous_alert_segments": 6509
+  },
+  "upper_cusum": {
+    "first_attack_evaluation_index": 1235004,
+    "first_attack_raw_index": 1300005,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 42362,
+    "detected_attack_intervals": 42362,
+    "attack_interval_detection_rate": 1.0,
+    "continuous_alert_segments": 1
+  },
+  "br_cusum": {
+    "first_attack_evaluation_index": 1235004,
+    "first_attack_raw_index": 1300005,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 42362,
+    "detected_attack_intervals": 42362,
+    "attack_interval_detection_rate": 1.0,
+    "continuous_alert_segments": 1
+  }
+}
