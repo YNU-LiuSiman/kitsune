@@ -2,11 +2,11 @@
 
 ## Current status
 
-- Status: validating
+- Status: done
 - Governing plan: `docs/BR_CUSUM_IMPLEMENTATION_PLAN.md` plus the user-specified BR-CUSUM protocol
 - Branch: `phase/05-br-cusum`
 - HEAD: `6ce625b`
-- Current milestone: BR-CUSUM completed; preparing small-artifact checkpoint and Draft PR
+- Current milestone: BR-CUSUM committed; preparing branch push and Draft PR
 
 ## Recovery snapshot
 
@@ -66,10 +66,12 @@
   statuses, 45 ablation rows, 81 sensitivity rows and no copied raw files.
   Main-channel audit found long non-zero CUSUM drift and zero lower-channel
   main-threshold alerts on all nine datasets; results are retained unchanged.
+- Checkpoint commits: `b9701a4` (detector/tests) and `9c03ede`
+  (nine-dataset results, plots and documentation).
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Inspect small artifacts, commit, push and create a Draft PR against
-   `phase/04-ewma` without changing existing PRs.
+3. Push `phase/05-br-cusum` and create a Draft PR against `phase/04-ewma`.
+   Do not treat the main drift result as evidence to tune k with labels.
