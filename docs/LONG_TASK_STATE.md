@@ -2,11 +2,11 @@
 
 ## Current status
 
-- Status: done
-- Governing plan: `docs/BR_CUSUM_IMPLEMENTATION_PLAN.md` plus the user-specified BR-CUSUM protocol
-- Branch: `phase/05-br-cusum`
-- HEAD: `6ce625b`
-- Current milestone: BR-CUSUM committed; preparing branch push and Draft PR
+- Status: validating
+- Governing plan: `docs/LEAKY_BR_CUSUM_PLAN.md` plus the user-specified Leaky BR-CUSUM protocol
+- Branch: `phase/05b-leaky-br-cusum`
+- HEAD: `6d7f345`
+- Current milestone: final drift-control experiment completed; preparing checkpoint and Draft PR
 
 ## Recovery snapshot
 
@@ -19,7 +19,7 @@
   - Full precheck currently loads whole files rather than streaming them.
   - Required metrics, artifact names, traceback persistence, and test coverage are incomplete.
 - Pre-existing modified and untracked files remain outside this phase's staging scope.
-- New outputs are restricted to `results/overnight-20260712/br_cusum/`.
+- New outputs are restricted to `results/overnight-20260712/leaky_br_cusum/`.
 - Completed: all nine execution score/label pairs are exactly aligned, finite,
   and start at row 55,001. The readiness audit is under
   `results/overnight-20260712/ewma/`.
@@ -36,6 +36,10 @@
   calibration split.
 - Added `scripts/run_br_cusum_evaluation.py` and synthetic tests. The main
   protocol completed nine datasets without copying score or label files.
+- Leaky BR-CUSUM retains the original BR-CUSUM result and writes a separate
+  drift-control comparison only.
+- Added `scripts/run_leaky_br_cusum_evaluation.py` and synthetic tests. The
+  method completed nine datasets in an independent output directory.
 
 ## Completion validation
 
@@ -68,10 +72,14 @@
   main-threshold alerts on all nine datasets; results are retained unchanged.
 - Checkpoint commits: `b9701a4` (detector/tests) and `9c03ede`
   (nine-dataset results, plots and documentation).
+- Leaky BR-CUSUM validation: 24/24 tests passed in 7.452 seconds. Nine
+  summaries, 36 comparison rows, 243 sensitivity rows, nine drift records and
+  no copied raw files. Main rho=0.95 still had long non-zero runs across all
+  nine datasets and zero lower-channel main-threshold alerts.
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Push `phase/05-br-cusum` and create a Draft PR against `phase/04-ewma`.
-   Do not treat the main drift result as evidence to tune k with labels.
+3. Commit, push and create the closing Draft PR. Do not develop another method;
+   the next phase is final report/material preparation.

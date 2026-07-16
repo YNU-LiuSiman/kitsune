@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "calibration_rows": 10000,
+  "calibration_raw_start": 55001,
+  "calibration_raw_end": 65000,
+  "evaluation_start_raw_index": 65001,
+  "threshold_source": "first_10000_execution_scores",
+  "score_direction": "higher_is_more_anomalous",
+  "epsilon": 1e-12,
+  "main_rho": 0.95,
+  "main_k": 0.5,
+  "main_threshold_method": "q99_5",
+  "candidate_rho": [
+    0.9,
+    0.95,
+    0.99
+  ],
+  "candidate_k": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "candidate_thresholds": [
+    "q99",
+    "q99_5",
+    "q99_9"
+  ],
+  "labels_used_for_parameter_selection": false,
+  "state_reset_count": 0,
+  "reset_on_alarm": "not part of main protocol"
+}
