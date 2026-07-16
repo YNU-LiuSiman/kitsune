@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Stable main SHA | `0b2d937` |
-| Current phase | Threshold protocol and EWMA post-processing evaluation |
-| Current branch | `phase/04-ewma` |
-| Last PR | #5 Draft — EWMA follow-up to baseline audit |
-| Last review | Nine-dataset fixed-window threshold/EWMA evaluation validated |
+| Current phase | BR-CUSUM robust bidirectional post-processing evaluation |
+| Current branch | `phase/05-br-cusum` |
+| Last PR | pending Draft — BR-CUSUM follow-up to EWMA |
+| Last review | Nine-dataset fixed-window BR-CUSUM evaluation validated |
 | Last updated | 2026-07-16 |
 
 ## Completed
@@ -23,6 +23,7 @@
 - [x] Local archive manifest with file hashes and recovery commands
 - [x] Fixed label-free calibration protocol: first 10,000 execution scores, excluded from evaluation
 - [x] Nine-dataset baseline versus EWMA (`alpha=0.10`) comparison with threshold and alpha sensitivity outputs
+- [x] Nine-dataset BR-CUSUM (`k=0.50`) comparison with robust/two-sided and upper-CUSUM ablations
 
 ## Locked Decisions
 
@@ -45,10 +46,11 @@
 
 - No baseline-data integrity blocker was found in the unified audit.
 - EWMA evaluation completed under its fixed protocol; interpretation must retain per-dataset improvement/neutral/degradation outcomes rather than a global improvement claim.
+- BR-CUSUM main protocol exhibits long non-zero CUSUM drift across all nine datasets; its lower channel had no main-threshold alerts. This must be reported as a limitation, not hidden by resetting or clipping.
 
 ## Next Phase
 
-Use the generated summaries and figures in the report, discuss calibration-window limitations and extreme finite RMSE values, and avoid claiming a universal EWMA gain. Do not modify official Kitsune source for this review.
+Use the baseline, EWMA, and BR-CUSUM summaries in the report. Discuss the fixed calibration split, extreme finite RMSE values, CUSUM drift and the inactive lower channel; avoid universal improvement claims. Do not modify official Kitsune source for this review.
 
 ## Recent Review Conclusion (PR #1)
 

@@ -3,14 +3,14 @@
 ## Current status
 
 - Status: done
-- Governing plan: `docs/EWMA_IMPLEMENTATION_PLAN.md` plus the user-specified threshold/EWMA protocol
-- Branch: `phase/04-ewma`
-- HEAD: `0a1555f`
-- Current milestone: nine-dataset post-processing committed; Draft PR update pending
+- Governing plan: `docs/BR_CUSUM_IMPLEMENTATION_PLAN.md` plus the user-specified BR-CUSUM protocol
+- Branch: `phase/05-br-cusum`
+- HEAD: `6ce625b`
+- Current milestone: BR-CUSUM committed; preparing branch push and Draft PR
 
 ## Recovery snapshot
 
-- Baseline PR: #4 (open Draft; must remain unchanged)
+- Baseline PRs: #4 and #5 (open Draft; must remain unchanged)
 - No active Python/KitNET process observed at recovery.
 - Existing modified and untracked experiment artifacts predate this state file; preserve and audit them.
 - Script audit complete. Required repairs identified:
@@ -19,6 +19,7 @@
   - Full precheck currently loads whole files rather than streaming them.
   - Required metrics, artifact names, traceback persistence, and test coverage are incomplete.
 - Pre-existing modified and untracked files remain outside this phase's staging scope.
+- New outputs are restricted to `results/overnight-20260712/br_cusum/`.
 - Completed: all nine execution score/label pairs are exactly aligned, finite,
   and start at row 55,001. The readiness audit is under
   `results/overnight-20260712/ewma/`.
@@ -31,6 +32,10 @@
 - Added `scripts/run_ewma_evaluation.py` and synthetic tests. The script uses
   only the fixed calibration score window for thresholds and writes derived
   small results under `results/overnight-20260712/ewma/`.
+- BR-CUSUM reads baseline RMSE only and uses the same fixed execution-period
+  calibration split.
+- Added `scripts/run_br_cusum_evaluation.py` and synthetic tests. The main
+  protocol completed nine datasets without copying score or label files.
 
 ## Completion validation
 
@@ -57,11 +62,16 @@
   11/11 passed in 7.434 seconds.
 - Checkpoint commits: `b6aeffd` (implementation/tests) and `7412331`
   (nine-dataset derived results, figures, protocol and recovery note).
+- BR-CUSUM validation: 19/19 tests passed in 7.541 seconds. Nine completed
+  statuses, 45 ablation rows, 81 sensitivity rows and no copied raw files.
+  Main-channel audit found long non-zero CUSUM drift and zero lower-channel
+  main-threshold alerts on all nine datasets; results are retained unchanged.
+- Checkpoint commits: `b9701a4` (detector/tests) and `9c03ede`
+  (nine-dataset results, plots and documentation).
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Push the committed phase branch and update Draft PR #5. Future work should
-   use the committed summaries and must not reinterpret the sensitivity grid as
-   test-label-selected tuning.
+3. Push `phase/05-br-cusum` and create a Draft PR against `phase/04-ewma`.
+   Do not treat the main drift result as evidence to tune k with labels.
