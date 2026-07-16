@@ -43,6 +43,7 @@
 
 - Governing baseline specification, project status, long-task state and blocker files read on 2026-07-16.
 - Dedicated `phase/04-ewma` branch created from audited baseline `0a1555f`.
+- Draft PR #5 created against `exp/overnight-20260712`; PR #4 remains unchanged.
 - Project `.venv` is used for all project Python work; it already contains NumPy, SciPy and Matplotlib.
 - Validation: `python -m py_compile scripts/audit_ewma_readiness.py` and the
   nine-dataset readiness audit passed. All forward/reverse AUC values and
