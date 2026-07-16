@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T01:03:22Z",
+  "entries": [
+    {
+      "dataset": "mirai",
+      "result_directory": "mirai",
+      "files": [
+        {
+          "path": "mirai/config.json",
+          "size_bytes": 154,
+          "sha256": "de509ee808a3b8fc0aa4113b9ae09e3fd56c196842c891c08e1c7f215a1a421e"
+        },
+        {
+          "path": "mirai/precheck.json",
+          "size_bytes": 656,
+          "sha256": "cf84b8ab291fa9ef509c6553c51522b96f1c8d3d6011fbedb952a55581be876b"
+        },
+        {
+          "path": "mirai/provisional_metrics.json",
+          "size_bytes": 615,
+          "sha256": "3e1f5ac14f7bba392f06392d903428e3e807bb215da5612c46b78dd6d7f4ffc4"
+        },
+        {
+          "path": "mirai/raw/full_rmse_with_labels.csv",
+          "size_bytes": 38970999,
+          "sha256": "f2bac3ec6d0cdaaf807b281459c1e244dea9efd8b7d16b79ba42cdb616b27c83"
+        },
+        {
+          "path": "mirai/raw/rmse.csv",
+          "size_bytes": 18437542,
+          "sha256": "59b8cb142928163b2609f31e29bb5e76269456e2f8b97f20730bc18235feb281"
+        },
+        {
+          "path": "mirai/raw/rmse_with_labels.csv",
+          "size_bytes": 36165948,
+          "sha256": "eef849eb8e8f15441b4982a3d21e204abcac0bec303a700db04d57d250254183"
+        },
+        {
+          "path": "mirai/status.json",
+          "size_bytes": 97,
+          "sha256": "b3400c4408c62dc13878b5f2cf422b51dc8936f8f598b3dfe74f287c7bcd5850"
+        }
+      ],
+      "total_size_bytes": 93576011,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_experiment.py --attack mirai --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "legacy-compatible: result, configuration and precheck artifacts are present"
+    },
+    {
+      "dataset": "os_scan",
+      "result_directory": "uci/os_scan/full",
+      "files": [
+        {
+          "path": "uci/os_scan/full/config.json",
+          "size_bytes": 180,
+          "sha256": "afaad50582c3e2b43e9fc633088843251669b6eb5f005fd80c5ec762fa74ad54"
+        },
+        {
+          "path": "uci/os_scan/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "2e2e63ef62903fd2f65f02b86697003722981819cc5785456a43653cdc0fed01"
+        },
+        {
+          "path": "uci/os_scan/full/metrics.json",
+          "size_bytes": 764,
+          "sha256": "744bca29aefd7f855f0647fd73ca8e098573a45c0f8fbafbaa422fa4167fff4b"
+        },
+        {
+          "path": "uci/os_scan/full/precheck.json",
+          "size_bytes": 770,
+          "sha256": "8a572ed77328891655014a13aef1a6d849a231cde7b2e8bdbf4d0d79d3502ad3"
+        },
+        {
+          "path": "uci/os_scan/full/raw/rmse.csv",
+          "size_bytes": 33802281,
+          "sha256": "ebbd65e0415d534ca139e4dae40727b5bce2245e380cb5c131b33709ec51316d"
+        },
+        {
+          "path": "uci/os_scan/full/raw/rmse_with_labels.csv",
+          "size_bytes": 40373687,
+          "sha256": "59fd5785b8d27797258a0aa564624ff399d2a784fef486e0ee1b4bbea173b6a1"
+        },
+        {
+          "path": "uci/os_scan/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "8961e7628d460a8b5e2a4a42d11eee73a2688fa10504fadb3c956761ec066305"
+        },
+        {
+          "path": "uci/os_scan/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "5331696287f9f3042cfa80c6dac4275786a3ce7e9af40cb32044594c4ca4789c"
+        },
+        {
+          "path": "uci/os_scan/full/status.json",
+          "size_bytes": 248,
+          "sha256": "fb4240cc44e27428cbb1f032e172b1c95b886a607ac38ca9be1ee5931c7fde9d"
+        }
+      ],
+      "total_size_bytes": 74178281,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack os_scan --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "fuzzing",
+      "result_directory": "uci/fuzzing/full",
+      "files": [
+        {
+          "path": "uci/fuzzing/full/config.json",
+          "size_bytes": 180,
+          "sha256": "40b19ed0f2e5797b6302df44a12d05e43fe96ccd04d39fdd5d53d311a7a9b728"
+        },
+        {
+          "path": "uci/fuzzing/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "a44a460cb72020ee24e00a1ea853a8fd3c2bd055da7e48b056ff3d511af9072d"
+        },
+        {
+          "path": "uci/fuzzing/full/metrics.json",
+          "size_bytes": 763,
+          "sha256": "1d27c632712fdae8d478875b02cd78070fac82fac08bf9e14a5d3eb583d1b81a"
+        },
+        {
+          "path": "uci/fuzzing/full/precheck.json",
+          "size_bytes": 772,
+          "sha256": "69ef9153ce72bbd652abba2aea415859f951a0d3e86fe9d3534450e2f0931271"
+        },
+        {
+          "path": "uci/fuzzing/full/raw/rmse.csv",
+          "size_bytes": 43908912,
+          "sha256": "80d31bb74d172915bbfafb89728f732a0c1e2ebe882f121106260ffb5c9a41d9"
+        },
+        {
+          "path": "uci/fuzzing/full/raw/rmse_with_labels.csv",
+          "size_bytes": 52665470,
+          "sha256": "d0169abdad988c79b15049d8d163efcdd3ca513595f4c518776936eb9abad2f2"
+        },
+        {
+          "path": "uci/fuzzing/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "3e8924c3027f223914cd584a5393cc95c3bb82b8d95c506c7dad3dfae2bae49d"
+        },
+        {
+          "path": "uci/fuzzing/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "f21472a9bebcff83afac148b53495b8b00c5ea693912cc7e1dd75503fd9b64b5"
+        },
+        {
+          "path": "uci/fuzzing/full/status.json",
+          "size_bytes": 248,
+          "sha256": "ddf3814817d7ed68f9c2292f9875f15fa4977a3d24e8dee8f1b8d60d850820d3"
+        }
+      ],
+      "total_size_bytes": 96576696,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack fuzzing --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "ssl_renegotiation",
+      "result_directory": "uci/ssl_renegotiation/full",
+      "files": [
+        {
+          "path": "uci/ssl_renegotiation/full/config.json",
+          "size_bytes": 190,
+          "sha256": "3ce9e563ec968266c32c177dc2c35e5dd1f7c8711bee53c39a9171d45944544e"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "856ab1d4c10bc80b2b466a3071b8f36b6ee55a92dce320adb61acdb80d94d7c6"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/metrics.json",
+          "size_bytes": 759,
+          "sha256": "2364392fea99b832d7a3956457e441d492dbc3acf3e0df3cc5fe8798dc567d37"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/precheck.json",
+          "size_bytes": 771,
+          "sha256": "e710c2d3d44476b6c99fee5ef5717d792be0eb5aadec4d9a5d675cecc55b4ecc"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/raw/rmse.csv",
+          "size_bytes": 43665780,
+          "sha256": "7523330784820b44be5535b0b4cb5fc81278f0d34203adc3c0c7f66e4a46e5a8"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/raw/rmse_with_labels.csv",
+          "size_bytes": 52276066,
+          "sha256": "94faa4ab22e581b286554123bc4f87ca63474916d37270f0a9fc9359991ddfca"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "cf55eb41285b79278538c6c7116b22750e195967991e19327ce18b4a265060fd"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "b15fa0143eeec5ef7138f65811f6e2a17c9269bc8068026f9031ab9a95e3bf40"
+        },
+        {
+          "path": "uci/ssl_renegotiation/full/status.json",
+          "size_bytes": 258,
+          "sha256": "fcaf19adc057c1ff8b23a6f18ca6c3a73feaa51da4e4a22e36b7fd0c43a8b036"
+        }
+      ],
+      "total_size_bytes": 95944175,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack ssl_renegotiation --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "arp_mitm",
+      "result_directory": "uci/arp_mitm/full",
+      "files": [
+        {
+          "path": "uci/arp_mitm/full/config.json",
+          "size_bytes": 181,
+          "sha256": "96648e032045b543c81f70d4d67527519709e9feb97c8154c28e6a1f7b5715cf"
+        },
+        {
+          "path": "uci/arp_mitm/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "ff99879faf840230be4fe8f36a50bad202874a3197d0553e22ca22be6ccd5ac4"
+        },
+        {
+          "path": "uci/arp_mitm/full/metrics.json",
+          "size_bytes": 760,
+          "sha256": "3127cb8626048fd5213f03adaed12fa3a4a0f6f86e07f1358645d7f8016a14d7"
+        },
+        {
+          "path": "uci/arp_mitm/full/precheck.json",
+          "size_bytes": 772,
+          "sha256": "bfd3d610332e00ca1efceedf577bb5c8b033ae5a22d287d34bb3e22eb341f8b0"
+        },
+        {
+          "path": "uci/arp_mitm/full/raw/rmse.csv",
+          "size_bytes": 48701022,
+          "sha256": "a03d2be1bfb7e491e6b9f293304bfcb7ee0dd620fc6c1b6c380765c2fee0a197"
+        },
+        {
+          "path": "uci/arp_mitm/full/raw/rmse_with_labels.csv",
+          "size_bytes": 58498092,
+          "sha256": "59ec3bddfc51dbd19f3bca5e1a97bce27c6e6ff55dd991632d5d631edf15f8e0"
+        },
+        {
+          "path": "uci/arp_mitm/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "78c018e51dd2c8d29b1e75069226f6761c4a21c887bb2175b164425e40da52ea"
+        },
+        {
+          "path": "uci/arp_mitm/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "23760633af73b6e53a27d47eefee860888153ca56474dffdaacc9276a13afb58"
+        },
+        {
+          "path": "uci/arp_mitm/full/status.json",
+          "size_bytes": 249,
+          "sha256": "eab9b3543015ea3ac85fa92cb8270bdb54ad4932cbf2d262b4b60291c05c6e3b"
+        }
+      ],
+      "total_size_bytes": 107201427,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack arp_mitm --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "syn_dos",
+      "result_directory": "uci/syn_dos/full",
+      "files": [
+        {
+          "path": "uci/syn_dos/full/config.json",
+          "size_bytes": 180,
+          "sha256": "53e2c5a103c923688e912093bf5e9e98abd4d27167133d2cfe55b672fade8e01"
+        },
+        {
+          "path": "uci/syn_dos/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "b7db85f07ac775c81890456b75275cc05d75950847b030145d7928e6d41240cd"
+        },
+        {
+          "path": "uci/syn_dos/full/metrics.json",
+          "size_bytes": 767,
+          "sha256": "cd6bc864784a5ee1cd9ae148741e50687592129c3265b0c7fa3b6d6df3e465e4"
+        },
+        {
+          "path": "uci/syn_dos/full/precheck.json",
+          "size_bytes": 767,
+          "sha256": "73960f04f9e05af4fc15f6160e2e8b3d203ecf461c3fecc6b78f78b9cb752b25"
+        },
+        {
+          "path": "uci/syn_dos/full/raw/rmse.csv",
+          "size_bytes": 55268303,
+          "sha256": "9996ccbca2a1ac5f0b605e443124c6574ac261cb9c6cf75f1b8e73167408a975"
+        },
+        {
+          "path": "uci/syn_dos/full/raw/rmse_with_labels.csv",
+          "size_bytes": 66133409,
+          "sha256": "75f2aaf9382039075f0cc63905028ac3e358502e7ba1cf7e74c5c0657247d769"
+        },
+        {
+          "path": "uci/syn_dos/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "e03e7a8fe4acfed9ea809b313133d9811b318774e39e03d6c15e4bc289c3143b"
+        },
+        {
+          "path": "uci/syn_dos/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "0d9676bf5cc3754bb2f5c79c6f937ecdef376423008a1564eb515f26e3558bb4"
+        },
+        {
+          "path": "uci/syn_dos/full/status.json",
+          "size_bytes": 248,
+          "sha256": "76090c18400499e90f9538ce596037d1f2af8a834320c2448d0d9385d56ffd2c"
+        }
+      ],
+      "total_size_bytes": 121404025,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack syn_dos --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "active_wiretap",
+      "result_directory": "uci/active_wiretap/full",
+      "files": [
+        {
+          "path": "uci/active_wiretap/full/config.json",
+          "size_bytes": 187,
+          "sha256": "21243894bbf6a8c1f7677fb13febbb67eea4873a7aa1eeda32dbf2fddf232f9d"
+        },
+        {
+          "path": "uci/active_wiretap/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "329f9a98218c12fe0086056592de6eeb090e05bad749cacfd598ba5b7d757bc4"
+        },
+        {
+          "path": "uci/active_wiretap/full/metrics.json",
+          "size_bytes": 761,
+          "sha256": "e604cfbeaa3ffb43de9b5604823a83cb1037b0a639f934ef47af7e091ccf9b8d"
+        },
+        {
+          "path": "uci/active_wiretap/full/precheck.json",
+          "size_bytes": 772,
+          "sha256": "fe0003de24195f3f7bd3f1d993d1e7bef1e61b2cdfb8882dff47f09c266faee3"
+        },
+        {
+          "path": "uci/active_wiretap/full/raw/rmse.csv",
+          "size_bytes": 44650258,
+          "sha256": "7569fe716db4595da6cadebfba6e94d484817734acb85f5f91e1b7c3e35b6770"
+        },
+        {
+          "path": "uci/active_wiretap/full/raw/rmse_with_labels.csv",
+          "size_bytes": 53545016,
+          "sha256": "55b0e65a8acae034f9b67fef25b3d064f47ea5bead92ff06ad10a902ae945626"
+        },
+        {
+          "path": "uci/active_wiretap/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "97bc1fa35162f5fe70a9c1345fd871fa9a5cb608e0191353786bb13e58d45757"
+        },
+        {
+          "path": "uci/active_wiretap/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "ea221ddebbb5f446fca61018634dc272421ae8155122cfa8c8bb46cd4a008932"
+        },
+        {
+          "path": "uci/active_wiretap/full/status.json",
+          "size_bytes": 255,
+          "sha256": "21b23b547af11eb4dbecc4ff00f44ab5f11eb92007e8c7256d9e51aca5ea7ad4"
+        }
+      ],
+      "total_size_bytes": 98197600,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack active_wiretap --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "ssdp_flood",
+      "result_directory": "uci/ssdp_flood/full",
+      "files": [
+        {
+          "path": "uci/ssdp_flood/full/config.json",
+          "size_bytes": 183,
+          "sha256": "45fb846554530558266774f31d7fa27023e67c58f746c4e0e93689ea5709b5bc"
+        },
+        {
+          "path": "uci/ssdp_flood/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "f19808d7cdd6d4f8249e2ace9a795720d266c44d9abf7d381c0423a8b319eafc"
+        },
+        {
+          "path": "uci/ssdp_flood/full/metrics.json",
+          "size_bytes": 763,
+          "sha256": "4f062af4bb87927dfbbbf48d4eb6a55bda9943b7dd17620443a1a14aa1ba817c"
+        },
+        {
+          "path": "uci/ssdp_flood/full/precheck.json",
+          "size_bytes": 772,
+          "sha256": "0d0372158cb675939e704836d6e604186e53a56732552d25cc0ae560c6dc569e"
+        },
+        {
+          "path": "uci/ssdp_flood/full/raw/rmse.csv",
+          "size_bytes": 80017004,
+          "sha256": "c59ff4ac5eb2b11cc624d423ed364f9ebf47d9ed96ff6d25c29561dcce687f41"
+        },
+        {
+          "path": "uci/ssdp_flood/full/raw/rmse_with_labels.csv",
+          "size_bytes": 96106070,
+          "sha256": "b3cafcd7b19740a79c18ff51dabdf1f56911a33fbaafd22add18b56f3a9e7f3a"
+        },
+        {
+          "path": "uci/ssdp_flood/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "28473336f189e8be28c76f5a5ab002b3957c049de4084c7a7547633a33c6c81a"
+        },
+        {
+          "path": "uci/ssdp_flood/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "479cfcbbec5800a12d22cac94af7c5a1bf12d9f194067b2023fb08dc96fdfab7"
+        },
+        {
+          "path": "uci/ssdp_flood/full/status.json",
+          "size_bytes": 251,
+          "sha256": "1a547716794eb0400202ed9574abbf0b9b4a1ea4aad9e64a6afd04d2cfcfca65"
+        }
+      ],
+      "total_size_bytes": 176125394,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack ssdp_flood --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    },
+    {
+      "dataset": "video_injection",
+      "result_directory": "uci/video_injection/full",
+      "files": [
+        {
+          "path": "uci/video_injection/full/config.json",
+          "size_bytes": 188,
+          "sha256": "d73a90113dbb9fe1253fd1e8e6163edeba162ea7f7e10aa8f00e92a5a808ad1a"
+        },
+        {
+          "path": "uci/video_injection/full/manifest.json",
+          "size_bytes": 146,
+          "sha256": "bfdf1827e777c304bb8c52d9642353af803869bd3f383db2e0ae9659925bafa6"
+        },
+        {
+          "path": "uci/video_injection/full/metrics.json",
+          "size_bytes": 762,
+          "sha256": "e597a724d15d2ce862b74458ddebacfbc24b0750ba94ad37b159ad23b1bc6d95"
+        },
+        {
+          "path": "uci/video_injection/full/precheck.json",
+          "size_bytes": 772,
+          "sha256": "3a4583fee154f619e502e0db901f70c66190186215e63dc10532cb1c0b2b18f0"
+        },
+        {
+          "path": "uci/video_injection/full/raw/rmse.csv",
+          "size_bytes": 48672721,
+          "sha256": "fbd61d415d6e2c236bcafa5eee953b6be39fa4771dbe32b8904fad61ffc07512"
+        },
+        {
+          "path": "uci/video_injection/full/raw/rmse_with_labels.csv",
+          "size_bytes": 58342327,
+          "sha256": "08fd7db52dd569b6083faf1b8cdb406e846ef04c6ecacf00ad5ba5decc4f0b8b"
+        },
+        {
+          "path": "uci/video_injection/full/raw/sanitized_run_log.txt",
+          "size_bytes": 26,
+          "sha256": "bb67d0557fdecebac061516f39f3a55e5e5998a9ef786289ea6be0295c01b053"
+        },
+        {
+          "path": "uci/video_injection/full/source_hashes.json",
+          "size_bytes": 179,
+          "sha256": "65d5973a0eb3b97b6e6943d5c45a2db2bd7452e79d6724ab6717161095b6674c"
+        },
+        {
+          "path": "uci/video_injection/full/status.json",
+          "size_bytes": 256,
+          "sha256": "796c3af40d64199dad65a0820599c30c4f65fac13cb9cddc2184e7fc683bf89d"
+        }
+      ],
+      "total_size_bytes": 107017377,
+      "rerun_command": "<PROJECT_ROOT>/.venv/Scripts/python.exe scripts/run_uci_experiment.py --attack video_injection --phase full --output-dir results/overnight-20260712 --no-overwrite",
+      "recovery_complete": true,
+      "recovery_condition": "complete"
+    }
+  ],
+  "total_size_bytes": 970220986
+}
