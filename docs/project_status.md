@@ -5,11 +5,11 @@
 | Field | Value |
 |---|---|
 | Stable main SHA | `0b2d937` |
-| Current phase | Phase 00 — Repository and Reproduction Audit |
-| Current branch | `phase/00-repository-audit` |
-| Last PR | #1 merged (repository storage policy) |
-| Last review | PR #1 approved and merged |
-| Last updated | 2026-07-11 |
+| Current phase | Baseline result audit and unified evaluation |
+| Current branch | `exp/overnight-20260712` |
+| Last PR | #4 Draft — remaining UCI experiments and audit |
+| Last review | Nine UCI full-result artifacts audited locally |
+| Last updated | 2026-07-16 |
 
 ## Completed
 
@@ -17,6 +17,10 @@
 - [x] Dataset directory structure (`data/`, `logs/`, `results/`)
 - [x] Legacy report moved to `docs/`
 - [x] Nested git repository removed from `Kitsune/Kitsune-py/`
+- [x] Mirai UCI full baseline and eight remaining UCI full baselines
+- [x] Full-result artifact validation: required artifacts, RMSE/label counts and finite-value checks
+- [x] Nine-dataset threshold-free audit: ROC-AUC, PR-AUC, class distributions and extreme-value audit
+- [x] Local archive manifest with file hashes and recovery commands
 
 ## Locked Decisions
 
@@ -31,18 +35,18 @@
 ## Open Issues
 
 1. **100-dim vs 115-dim:** Two separate tracks. Python PCAP → AfterImage → KitNET(n=100). UCI CSV → KitNET(n=115). Not a compatibility issue; KitNET n is dynamic.
-2. **UCI dataset download:** URL, SHA-256, exact column layout TBD in audit phase.
+2. **Extreme RMSE values:** Several datasets have finite but very large max/median ratios. Score/label alignment is verified; input scale and normalization boundaries require review before causal interpretation.
 3. **Grace periods:** All exploratory runs use FMgrace=5000, ADgrace=50000 (unified). Parameter tuning deferred.
 4. **Threshold determination:** Log-normal cutoff method from example.py; applicability to UCI data needs verification.
 
 ## Blockers
 
-- UCI dataset must be downloaded and verified before Track B can begin.
-- 100/115-dim resolution is required before UCI features can flow into KitNET.
+- No baseline-data integrity blocker was found in the unified audit.
+- EWMA is intentionally deferred until the baseline audit conclusions are reviewed.
 
 ## Next Phase
 
-`phase/01-experiment-setup` (after Phase 00 PR approved and merged)
+Review the baseline audit, decide how to investigate extreme finite RMSE values, then consider a separately specified EWMA phase. Do not modify official Kitsune source for this review.
 
 ## Recent Review Conclusion (PR #1)
 
