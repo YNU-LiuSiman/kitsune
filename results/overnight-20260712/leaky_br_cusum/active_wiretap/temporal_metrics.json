@@ -1,0 +1,9 @@
+{
+  "first_attack_evaluation_index": 1234999,
+  "first_attack_raw_index": 1300000,
+  "detection_delay_rows": 0,
+  "attack_interval_count": 47739,
+  "detected_attack_intervals": 47739,
+  "attack_interval_detection_rate": 1.0,
+  "continuous_alert_segments": 85
+}

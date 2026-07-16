@@ -1,0 +1,12 @@
+{
+  "upper_channel_alerts": 1626425,
+  "lower_channel_alerts": 0,
+  "lower_only_alerts": 0,
+  "lower_only_attack_alerts": 0,
+  "upper_nonzero_fraction": 0.9999981627216217,
+  "lower_nonzero_fraction": 7.349113513182473e-06,
+  "upper_longest_nonzero_run": 1632509,
+  "lower_longest_nonzero_run": 2,
+  "upper_max": 4.670812347905562e+16,
+  "lower_max": 0.4114157007798369
+}
