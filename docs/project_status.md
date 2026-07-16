@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Stable main SHA | `0b2d937` |
-| Current phase | Baseline result audit and unified evaluation |
-| Current branch | `exp/overnight-20260712` |
-| Last PR | #4 Draft — remaining UCI experiments and audit |
-| Last review | Nine UCI full-result artifacts audited locally |
+| Current phase | Threshold protocol and EWMA post-processing evaluation |
+| Current branch | `phase/04-ewma` |
+| Last PR | #5 Draft — EWMA follow-up to baseline audit |
+| Last review | Nine-dataset fixed-window threshold/EWMA evaluation validated |
 | Last updated | 2026-07-16 |
 
 ## Completed
@@ -21,6 +21,8 @@
 - [x] Full-result artifact validation: required artifacts, RMSE/label counts and finite-value checks
 - [x] Nine-dataset threshold-free audit: ROC-AUC, PR-AUC, class distributions and extreme-value audit
 - [x] Local archive manifest with file hashes and recovery commands
+- [x] Fixed label-free calibration protocol: first 10,000 execution scores, excluded from evaluation
+- [x] Nine-dataset baseline versus EWMA (`alpha=0.10`) comparison with threshold and alpha sensitivity outputs
 
 ## Locked Decisions
 
@@ -42,11 +44,11 @@
 ## Blockers
 
 - No baseline-data integrity blocker was found in the unified audit.
-- EWMA is intentionally deferred until the baseline audit conclusions are reviewed.
+- EWMA evaluation completed under its fixed protocol; interpretation must retain per-dataset improvement/neutral/degradation outcomes rather than a global improvement claim.
 
 ## Next Phase
 
-Review the baseline audit, decide how to investigate extreme finite RMSE values, then consider a separately specified EWMA phase. Do not modify official Kitsune source for this review.
+Use the generated summaries and figures in the report, discuss calibration-window limitations and extreme finite RMSE values, and avoid claiming a universal EWMA gain. Do not modify official Kitsune source for this review.
 
 ## Recent Review Conclusion (PR #1)
 

@@ -1,45 +1,12 @@
 {
   "attack": "mirai",
-  "execution_start_row": 55001,
-  "execution_rows": 709136,
-  "labels": {
-    "meaning": {
-      "0": "benign",
-      "1": "attack"
-    },
-    "count": 709136,
-    "benign_count": 66620,
-    "attack_count": 642516
-  },
+  "execution_start_raw_index": 55001,
+  "calibration_rows": 10000,
+  "evaluation_start_raw_index": 65001,
+  "calibration_attack_count": 0,
+  "calibration_benign_count": 10000,
+  "calibration_contaminated": false,
+  "calibration_contamination_rate": 0.0,
   "score_label_exact_alignment": true,
-  "scores_finite": true,
-  "benign_rmse": {
-    "count": 66620,
-    "median": 0.00875149680340969,
-    "mean": 0.012632518223309321
-  },
-  "attack_rmse": {
-    "count": 642516,
-    "median": 36.08362179347944,
-    "mean": 29.725479121204508
-  },
-  "attack_intervals": {
-    "count": 1,
-    "first_execution_index": 66620,
-    "first_original_row": 121621,
-    "sample_first_10": [
-      {
-        "execution_start": 66620,
-        "execution_end": 709135,
-        "original_start": 121621,
-        "original_end": 764136
-      }
-    ]
-  },
-  "roc_auc_rmse": 0.9481552338630767,
-  "roc_auc_negative_rmse": 0.05184476613692338,
-  "score_direction": "higher_is_more_anomalous",
-  "training_rmse_available": false,
-  "training_rmse_evidence": "raw/rmse.csv contains exactly execution_rows; no persisted score series covers rows 0..55000",
-  "threshold_readiness": "blocked_no_label_free_calibration_scores"
+  "score_direction": "higher_is_more_anomalous"
 }

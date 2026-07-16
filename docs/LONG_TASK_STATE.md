@@ -2,11 +2,11 @@
 
 ## Current status
 
-- Status: blocked-partial
+- Status: validating
 - Governing plan: `docs/EWMA_IMPLEMENTATION_PLAN.md` plus the user-specified threshold/EWMA protocol
 - Branch: `phase/04-ewma`
 - HEAD: `0a1555f`
-- Current milestone: threshold protocol blocked after direction/timing/calibration audit
+- Current milestone: nine-dataset post-processing completed; preparing Git checkpoint and Draft PR update
 
 ## Recovery snapshot
 
@@ -22,15 +22,15 @@
 - Completed: all nine execution score/label pairs are exactly aligned, finite,
   and start at row 55,001. The readiness audit is under
   `results/overnight-20260712/ewma/`.
-- Blocker: no training-period RMSE is persisted. See
-  `docs/LONG_TASK_BLOCKERS.md` for the required user decision.
+- The fixed user-authorized, label-free execution calibration window resolves
+  the threshold blocker. Its rows 0..9,999 are excluded from final evaluation.
 
 ## Current implementation
 
 - Baseline audit artifacts are on the parent branch at `0a1555f`.
-- Added `scripts/audit_ewma_readiness.py`; it only reads baseline RMSE/labels
-  and writes compact direction/timing/readiness audit JSON. No EWMA series or
-  threshold-dependent metric has been created.
+- Added `scripts/run_ewma_evaluation.py` and synthetic tests. The script uses
+  only the fixed calibration score window for thresholds and writes derived
+  small results under `results/overnight-20260712/ewma/`.
 
 ## Completion validation
 
@@ -48,10 +48,16 @@
 - Validation: `python -m py_compile scripts/audit_ewma_readiness.py` and the
   nine-dataset readiness audit passed. All forward/reverse AUC values and
   attack interval counts were recorded. No score-label misalignment occurred.
+- Validation: `python -m unittest discover -s tests -v` passed 11/11 in
+  7.556 seconds, including EWMA arithmetic, alpha boundaries, label isolation,
+  temporal metrics, extreme scores, and interrupted-resume semantics.
+- Nine-dataset execution completed using the user-authorized fixed window:
+  9 summaries, 486 threshold rows, 45 alpha rows, 9 completed statuses and no
+  raw score/label copies in the EWMA output directory. Final full test suite:
+  11/11 passed in 7.434 seconds.
 
 ## Resume
 
 1. Read `docs/EWMA_IMPLEMENTATION_PLAN.md`, `docs/project_status.md`, and this state file.
 2. Check Git status and preserve the pre-existing dirty boundary.
-3. Obtain the user-selected legal, label-free calibration protocol from
-   `docs/LONG_TASK_BLOCKERS.md`; only then implement thresholds and EWMA.
+3. Inspect the staged small artifacts, commit, push, and update Draft PR #5.

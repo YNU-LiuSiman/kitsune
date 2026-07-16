@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "first_attack_evaluation_index": 1255010,
+    "first_attack_raw_index": 1320011,
+    "first_detection_evaluation_index": 1255010,
+    "first_detection_raw_index": 1320011,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 29299,
+    "detected_attack_intervals": 28849,
+    "attack_interval_detection_rate": 0.9846411140311956,
+    "benign_false_positive_count": 2034641,
+    "continuous_alert_segments": 3447
+  },
+  "ewma": {
+    "first_attack_evaluation_index": 1255010,
+    "first_attack_raw_index": 1320011,
+    "first_detection_evaluation_index": 1255010,
+    "first_detection_raw_index": 1320011,
+    "detection_delay_rows": 0,
+    "attack_interval_count": 29299,
+    "detected_attack_intervals": 29299,
+    "attack_interval_detection_rate": 1.0,
+    "benign_false_positive_count": 2043604,
+    "continuous_alert_segments": 146
+  }
+}
